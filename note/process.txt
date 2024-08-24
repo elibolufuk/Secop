@@ -1,0 +1,38 @@
+1 - Customer
+	Müşterilerin olduğu servisler
+
+2 - Credit
+	Kredi başvusuru
+
+3 - Credit Scoring
+	Kullanıcının kredi puanını sorgulayan ve hesaplayan bir microservice
+
+4 - Risk Assessment
+	Kullanıcının kredi riskini değerlendiren ve karar veren bir sistem
+
+5 - Loan Approval Service
+	Başvurunun onaylanması veya reddedilmesi kararını veren servis
+
+6 - Repayment Service
+	Kullanıcının kredi geri ödeme planını oluşturan ve geri ödemeleri takip eden bir servis
+
+7 - Notification Service
+	Kullanıcılara ödeme hatırlatmaları, kredi onayı gibi bildirimleri gönderen servis
+
+
+Choreography
+	Kullanılacak servisler
+		- Customer
+		- Credit
+		- Credit Scoring
+		- Loan Approval
+
+Orchestration
+	Kullanılacak servisler
+		- Customer
+		- Credit
+		- Credit Scoring
+		- Risk Assessment
+		- Loan Approval Service
+		- Repayment Service
+		- Notification Service
