@@ -10,4 +10,8 @@
     <ProjectReference Include="..\..\..\Core\Secop.Core.Application\Secop.Core.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+
 </Project>

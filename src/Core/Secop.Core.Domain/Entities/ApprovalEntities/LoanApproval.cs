@@ -11,6 +11,6 @@ namespace Secop.Core.Domain.Entities.ApprovalEntities
         public int Score { get; set; }
         public CreditRiskLevelType RiskLevel { get; set; }
         public ApplicationStatusType ApplicationStatus { get; set; }
-        public string Comments { get; set; }
+        public string Comment { get; set; }
     }
 }
