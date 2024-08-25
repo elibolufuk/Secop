@@ -1,3 +1,5 @@
+using Secop.Core.Application.Extensions;
+using Secop.Score.Persistence.DbContexts;
 using Secop.Score.Persistence.Extensions;
 
 internal class Program
@@ -13,7 +15,8 @@ internal class Program
 
         var app = builder.Build();
 
-        // Configure the HTTP request pipeline.
+        app.Services.MigrateDatabase<ScoreDbContext>();
+
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();

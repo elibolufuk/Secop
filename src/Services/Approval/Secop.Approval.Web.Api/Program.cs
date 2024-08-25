@@ -1,4 +1,6 @@
+using Secop.Approval.Persistence.DbContexts;
 using Secop.Approval.Persistence.Extensions;
+using Secop.Core.Application.Extensions;
 
 internal class Program
 {
@@ -12,7 +14,8 @@ internal class Program
         builder.Services.AddServiceCollections(builder.Configuration);
         var app = builder.Build();
 
-        // Configure the HTTP request pipeline.
+        app.Services.MigrateDatabase<ApprovalDbContext>();
+
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();

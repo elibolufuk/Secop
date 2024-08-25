@@ -1,3 +1,5 @@
+using Secop.Core.Application.Extensions;
+using Secop.Customer.Persistence.DbContexts;
 using Secop.Customer.Persistence.Extensions;
 
 internal class Program
@@ -6,17 +8,15 @@ internal class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        // Add services to the container.
-
         builder.Services.AddControllers();
-        // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
         builder.Services.AddServiceCollections(builder.Configuration);
 
         var app = builder.Build();
 
-        // Configure the HTTP request pipeline.
+        app.Services.MigrateDatabase<CustomerDbContext>();
+
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();

@@ -1,3 +1,5 @@
+using Secop.Core.Application.Extensions;
+using Secop.Credit.Persistence.DbContexts;
 using Secop.Credit.Persistence.Extensions;
 internal class Program
 {
@@ -11,6 +13,8 @@ internal class Program
         builder.Services.AddServiceCollections(builder.Configuration);
 
         var app = builder.Build();
+
+        app.Services.MigrateDatabase<CreditDbContext>();
 
         if (app.Environment.IsDevelopment())
         {
