@@ -1,0 +1,17 @@
+[
+  {
+    "Id": "9f93a20a-5e7e-41a6-a8e5-8c5efc73b3b4",
+    "CreatedAt": "2024-08-24T10:05:00Z",
+    "CreatedById": "f7b72d1c-36a5-489c-9989-d8fa9b0d8ea4",
+    "UpdatedAt": null,
+    "UpdatedById": null,
+    "EntityStatus": 1,
+    "AddressLine1": "123 Ana Cadde",
+    "AddressLine2": "Daire 4B",
+    "City": "Bir Yer",
+    "State": "CA",
+    "PostalCode": "90210",
+    "Country": "T�rkiye",
+    "MemberId": "c12eaf70-8c4a-4b1d-8b63-3f4eacfd28ef"
+  }
+]

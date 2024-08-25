@@ -5,7 +5,7 @@ namespace Secop.Core.Domain.Entities.ApprovalEntities
 {
     public class LoanApproval : BaseEntity
     {
-        public int CreditApplicationId { get; set; }
+        public Guid CreditApplicationId { get; set; }
         public decimal Amount { get; set; }
         public int TermMonths { get; set; }
         public int Score { get; set; }

@@ -7,7 +7,7 @@ namespace Secop.Core.Domain.Entities.CustomerEntities
 
         public string ContactType { get; set; }
 
-        public int MemberId { get; set; }
+        public Guid MemberId { get; set; }
 
         public Member Member { get; set; }
     }

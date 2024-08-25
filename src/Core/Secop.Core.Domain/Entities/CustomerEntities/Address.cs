@@ -15,7 +15,7 @@ namespace Secop.Core.Domain.Entities.CustomerEntities
 
         public string Country { get; set; }
 
-        public int MemberId { get; set; }
+        public Guid MemberId { get; set; }
 
         public Member Member { get; set; }
     }

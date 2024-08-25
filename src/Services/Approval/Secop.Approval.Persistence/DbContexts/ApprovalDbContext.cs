@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Secop.Core.Application.Constants;
+using Secop.Core.Application.Extensions;
+using Secop.Core.Domain.Entities.ApprovalEntities;
 using System.Reflection;
 
 namespace Secop.Approval.Persistence.DbContexts
@@ -11,6 +13,8 @@ namespace Secop.Approval.Persistence.DbContexts
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             modelBuilder.HasDefaultSchema(SchemaConstants.Approval);
+
+            modelBuilder.Entity<LoanApproval>().SeedData();
         }
     }
 }

@@ -1,0 +1,28 @@
+[
+  {
+    "Id": "b6e7d8c9-d2c7-4f0e-a3fc-76fa0d579123",
+    "CreatedAt": "2024-08-24T19:00:00Z",
+    "CreatedById": "a1b72d1a-4c5a-439c-b88d-d8fa9b0d9ea4",
+    "UpdatedAt": null,
+    "UpdatedById": null,
+    "EntityStatus": 1,
+    "CustomerId": "c12eaf70-8c4a-4b1d-8b63-3f4eacfd28ef",
+    "Amount": 20000.00,
+    "TermMonths": 24,
+    "CreditType": 0,
+    "ApplicationDate": "2024-08-24T18:30:00Z"
+  },
+  {
+    "Id": "12b4556d-8c2d-42f1-a125-e1d13a3d7c4b",
+    "CreatedAt": "2024-08-25T09:00:00Z",
+    "CreatedById": "b2b3d1b2-56c1-439c-b88d-d9f9b2c4c123",
+    "UpdatedAt": null,
+    "UpdatedById": null,
+    "EntityStatus": 1,
+    "CustomerId": "c12eaf70-8c4a-4b1d-8b63-3f4eacfd28ef",
+    "Amount": 35000.00,
+    "TermMonths": 36,
+    "CreditType": 1,
+    "ApplicationDate": "2024-08-25T08:45:00Z"
+  }
+]

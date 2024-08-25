@@ -19,7 +19,7 @@ namespace Secop.Score.Persistence.EntityConfigurations
                 var minScore = EntityConfigurationExtensions.GetColumnName<RiskLevelRange>(rl => rl.MinScore);
                 var maxScore = EntityConfigurationExtensions.GetColumnName<RiskLevelRange>(rl => rl.MaxScore);
 
-                t.HasCheckConstraint($"CHK_{tableName}_{minScore}_{maxScore}", $"[{minScore}] <= [{maxScore}]");
+                t.HasCheckConstraint($"CHK_{tableName}_{minScore}_{maxScore}", $"{minScore} <= {maxScore}");
 
             });
 

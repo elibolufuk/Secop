@@ -18,4 +18,8 @@
     <ProjectReference Include="..\Secop.Customer.Persistence\Secop.Customer.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="SeedDataJson\" />
+  </ItemGroup>
+
 </Project>

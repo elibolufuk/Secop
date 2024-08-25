@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "8cfe3c9b-3d6b-4f68-8c1f-7eaf6e0df84a",
+    "CreatedAt": "2024-08-25T09:00:00Z",
+    "CreatedById": "e0f2f77a-b7d4-4b8a-9f35-b0f60d1bdf6e",
+    "UpdatedAt": null,
+    "UpdatedById": null,
+    "EntityStatus": 1,
+    "CustomerId": "c12eaf70-8c4a-4b1d-8b63-3f4eacfd28ef",
+    "Score": 750,
+    "ScoreDate": "2024-08-25T00:00:00Z",
+    "RiskLevel": 2
+  },
+  {
+    "Id": "0a09c2d2-897a-4a6f-bbf4-9825b9e0ff43",
+    "CreatedAt": "2024-08-25T10:00:00Z",
+    "CreatedById": "e0f2f77a-b7d4-4b8a-9f35-b0f60d1bdf6e",
+    "UpdatedAt": null,
+    "UpdatedById": null,
+    "EntityStatus": 1,
+    "CustomerId": "c12eaf70-8c4a-4b1d-8b63-3f4eacfd28ef",
+    "Score": 620,
+    "ScoreDate": "2024-08-25T00:00:00Z",
+    "RiskLevel": 1
+  }
+]

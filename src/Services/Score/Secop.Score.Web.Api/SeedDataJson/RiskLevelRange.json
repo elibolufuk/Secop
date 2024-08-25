@@ -1,0 +1,24 @@
+[
+  {
+    "Id": "1f9e3b9e-1e44-4d6d-8f98-6bfa5e8c12ed",
+    "CreatedAt": "2024-08-25T11:00:00Z",
+    "CreatedById": "e0f2f77a-b7d4-4b8a-9f35-b0f60d1bdf6e",
+    "UpdatedAt": null,
+    "UpdatedById": null,
+    "EntityStatus": 1,
+    "RiskLevel": 1,
+    "MinScore": 300,
+    "MaxScore": 599
+  },
+  {
+    "Id": "3d9f8d5e-6476-4dbe-85db-6d7879fc317d",
+    "CreatedAt": "2024-08-25T12:00:00Z",
+    "CreatedById": "e0f2f77a-b7d4-4b8a-9f35-b0f60d1bdf6e",
+    "UpdatedAt": null,
+    "UpdatedById": null,
+    "EntityStatus": 1,
+    "RiskLevel": 2,
+    "MinScore": 600,
+    "MaxScore": 799
+  }
+]

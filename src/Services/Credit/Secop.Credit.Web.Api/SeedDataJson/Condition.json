@@ -1,0 +1,30 @@
+[
+  {
+    "Id": "7e1d5c8d-c6f8-4a4d-bc6b-d2a5ec841b76",
+    "CreatedAt": "2024-08-24T18:45:00Z",
+    "CreatedById": "f7b72d1c-36a5-489c-9989-d8fa9b0d8ea4",
+    "UpdatedAt": null,
+    "UpdatedById": null,
+    "EntityStatus": 1,
+    "CreditType": 0,
+    "InterestRate": 4.5,
+    "MinAmount": 5000.00,
+    "MaxAmount": 50000.00,
+    "MinMonth": 6,
+    "MaxMonth": 60
+  },
+  {
+    "Id": "12b4556d-4c0e-42f1-a125-e1d13a2d6c2a",
+    "CreatedAt": "2024-08-25T10:15:00Z",
+    "CreatedById": "d9aebd1a-36a5-4d3a-998b-d8fa9b0d1234",
+    "UpdatedAt": null,
+    "UpdatedById": null,
+    "EntityStatus": 1,
+    "CreditType": 1,
+    "InterestRate": 5.0,
+    "MinAmount": 10000.00,
+    "MaxAmount": 75000.00,
+    "MinMonth": 12,
+    "MaxMonth": 72
+  }
+]

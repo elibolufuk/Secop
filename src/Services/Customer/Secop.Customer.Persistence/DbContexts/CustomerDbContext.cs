@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Secop.Core.Application.Constants;
+using Secop.Core.Application.Extensions;
+using Secop.Core.Domain.Entities.CustomerEntities;
 using System.Reflection;
 
 namespace Secop.Customer.Persistence.DbContexts
@@ -11,6 +13,10 @@ namespace Secop.Customer.Persistence.DbContexts
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             modelBuilder.HasDefaultSchema(SchemaConstants.Customer);
+
+            modelBuilder.Entity<Address>().SeedData();
+            modelBuilder.Entity<Contact>().SeedData();
+            modelBuilder.Entity<Member>().SeedData();
         }
     }
 }

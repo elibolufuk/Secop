@@ -1,0 +1,32 @@
+[
+  {
+    "Id": "b3d6f3a0-3a29-45f8-b4d9-bbb5b4385b9e",
+    "CreatedAt": "2024-08-25T14:32:00",
+    "CreatedById": "a3b72e9d-b27c-41a7-99d9-e2f9327c446d",
+    "UpdatedAt": null,
+    "UpdatedById": null,
+    "EntityStatus": 1,
+    "CreditApplicationId": "b6e7d8c9-d2c7-4f0e-a3fc-76fa0d579123",
+    "Amount": 20000.50,
+    "TermMonths": 24,
+    "Score": 1600,
+    "RiskLevel": 2,
+    "ApplicationStatus": 1,
+    "Comment": "İyi kredi notuyla onaylandı"
+  },
+  {
+    "Id": "8fa83e6f-9b17-42e9-9a69-5f9b7b3e7d31",
+    "CreatedAt": "2024-08-25T10:15:00",
+    "CreatedById": "c93b2f1a-a9a6-4d3a-a356-579c03e3b7a9",
+    "UpdatedAt": "2024-08-26T09:20:00",
+    "UpdatedById": "d52e0297-d9cc-46c2-b3d2-cf5b5b9b11bc",
+    "EntityStatus": 2,
+    "CreditApplicationId": "12b4556d-8c2d-42f1-a125-e1d13a3d7c4b",
+    "Amount": 35000.00,
+    "TermMonths": 12,
+    "Score": 1200,
+    "RiskLevel": 3,
+    "ApplicationStatus": 2,
+    "Comment": "Orta düzeyde risk nedeniyle inceleme bekleniyor"
+  }
+]

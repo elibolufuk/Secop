@@ -1,0 +1,13 @@
+[
+  {
+    "Id": "bc4f7557-f2ef-4d52-8b53-ef2d690b254e",
+    "CreatedAt": "2024-08-24T10:10:00Z",
+    "CreatedById": "f7b72d1c-36a5-489c-9989-d8fa9b0d8ea4",
+    "UpdatedAt": null,
+    "UpdatedById": null,
+    "EntityStatus": 1,
+    "PhoneNumber": "+90-555-1234",
+    "ContactType": "Mobil",
+    "MemberId": "c12eaf70-8c4a-4b1d-8b63-3f4eacfd28ef"
+  }
+]
