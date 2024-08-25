@@ -52,7 +52,7 @@ namespace Secop.Core.Application.Extensions
                     if (i > 0)
                         result.Append('_');
 
-                    result.Append(char.ToLower(currentChar));
+                    result.Append(char.ToLowerInvariant(currentChar));
                 }
                 else
                 {

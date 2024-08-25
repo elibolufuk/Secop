@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Secop.Core.Application.Constants;
+using System.Reflection;
 
 namespace Secop.Customer.Persistence.DbContexts
 {
@@ -7,7 +9,8 @@ namespace Secop.Customer.Persistence.DbContexts
     {
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            modelBuilder.HasDefaultSchema(SchemaConstants.Customer);
         }
     }
 }

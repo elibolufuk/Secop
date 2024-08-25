@@ -2,6 +2,7 @@
 {
     public class SchemaConstants
     {
+        public const string MigrationsHistoryTableName = "_migrations_history";
         public const string Approval = "approval";
         public const string Credit = "credit";
         public const string Customer = "customer";
