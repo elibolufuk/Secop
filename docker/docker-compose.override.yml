@@ -1,0 +1,36 @@
+services:
+  approval.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ConnectionStrings__ApprovalDbContext=Host=${POSTGRES_HOST};Port=${POSTGRES_INTERNAL_PORT};Database=${POSTGRES_DATABASE};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD};
+    ports:
+      - "5001:8080"
+
+
+  credit.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ConnectionStrings__CreditDbContext=Host=${POSTGRES_HOST};Port=${POSTGRES_INTERNAL_PORT};Database=${POSTGRES_DATABASE};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD};
+    ports:
+      - "5002:8080"
+
+
+  customer.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ConnectionStrings__CustomerDbContext=Host=${POSTGRES_HOST};Port=${POSTGRES_INTERNAL_PORT};Database=${POSTGRES_DATABASE};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD};
+    ports:
+      - "5003:8080"
+
+
+  score.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ConnectionStrings__ScoreDbContext=Host=${POSTGRES_HOST};Port=${POSTGRES_INTERNAL_PORT};Database=${POSTGRES_DATABASE};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD};
+    ports:
+      - "5004:8080"
+

@@ -1,0 +1,65 @@
+name: secop
+
+services:
+  postgresdb:
+    image: postgres:13
+    container_name: db.postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DATABASE}
+    ports:
+      - "${POSTGRES_EXTERNAL_PORT}:${POSTGRES_INTERNAL_PORT}"
+    volumes:
+      - postgres-data-volume:/var/lib/postgresql/data
+    networks:
+        - internal
+
+
+  approval.api:
+    image: ${DOCKER_REGISTRY-}secop/approval
+    container_name: api.approval
+    build:
+      context: ./../src/Services
+      dockerfile: Approval/Secop.Approval.Web.Api/Dockerfile
+    networks:
+        - internal
+
+
+  credit.api:
+    image: ${DOCKER_REGISTRY-}secop/credit
+    container_name: api.credit
+    build:
+      context: ./../src/Services
+      dockerfile: Credit/Secop.Credit.Web.Api/Dockerfile
+    networks:
+        - internal
+
+
+  customer.api:
+    image: ${DOCKER_REGISTRY-}secop/customer
+    container_name: api.customer
+    build:
+      context: ./../src/Services
+      dockerfile: Customer/Secop.Customer.Web.Api/Dockerfile
+    networks:
+        - internal
+
+
+  score.api:
+    image: ${DOCKER_REGISTRY-}secop/score
+    container_name: api.score
+    build:
+      context: ./../src/Services
+      dockerfile: Score/Secop.Score.Web.Api/Dockerfile
+    networks:
+        - internal
+
+
+volumes:
+  postgres-data-volume:
+
+
+networks:
+    internal:
+        driver: bridge
