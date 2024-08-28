@@ -5,11 +5,11 @@
     "CreatedById": "e0f2f77a-b7d4-4b8a-9f35-b0f60d1bdf6e",
     "UpdatedAt": null,
     "UpdatedById": null,
-    "EntityStatus": 1,
+    "EntityStatus": "Active",
     "CustomerId": "c12eaf70-8c4a-4b1d-8b63-3f4eacfd28ef",
     "Score": 750,
     "ScoreDate": "2024-08-25T00:00:00Z",
-    "RiskLevel": 2
+    "RiskLevel": "HighRisk"
   },
   {
     "Id": "0a09c2d2-897a-4a6f-bbf4-9825b9e0ff43",
@@ -17,10 +17,10 @@
     "CreatedById": "e0f2f77a-b7d4-4b8a-9f35-b0f60d1bdf6e",
     "UpdatedAt": null,
     "UpdatedById": null,
-    "EntityStatus": 1,
+    "EntityStatus": "Active",
     "CustomerId": "c12eaf70-8c4a-4b1d-8b63-3f4eacfd28ef",
     "Score": 620,
     "ScoreDate": "2024-08-25T00:00:00Z",
-    "RiskLevel": 1
+    "RiskLevel": "VeryHighRisk"
   }
 ]

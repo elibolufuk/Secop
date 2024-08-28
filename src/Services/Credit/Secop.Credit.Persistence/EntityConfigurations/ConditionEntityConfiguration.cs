@@ -23,7 +23,6 @@ namespace Secop.Credit.Persistence.EntityConfigurations
                 t.HasCheckConstraint($"CHK_{tableName}_{maxMonth}", $"{maxMonth} >= 1 AND {maxMonth} <= 120");
             });
 
-            // TODO : postgre enum ile ilişkilendirilecek
             builder.Property(c => c.CreditType)
                 .HasColumnDefaultName()
                 .HasColumnOrder(ColumnOrder)

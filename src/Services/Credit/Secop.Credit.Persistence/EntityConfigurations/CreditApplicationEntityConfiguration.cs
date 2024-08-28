@@ -30,7 +30,6 @@ namespace Secop.Credit.Persistence.EntityConfigurations
                 .HasColumnOrder(ColumnOrder)
                 .IsRequired();
 
-            // TODO : postgre enum ile ilişkilendirilecek
             builder.Property(c => c.CreditType)
                 .HasColumnDefaultName()
                 .HasColumnOrder(ColumnOrder)

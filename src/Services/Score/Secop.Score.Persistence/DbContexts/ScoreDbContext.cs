@@ -2,6 +2,7 @@
 using Secop.Core.Application.Constants;
 using Secop.Core.Application.Extensions;
 using Secop.Core.Domain.Entities.ScoreEntities;
+using Secop.Core.Domain.Enums;
 using System.Reflection;
 
 namespace Secop.Score.Persistence.DbContexts
@@ -9,10 +10,15 @@ namespace Secop.Score.Persistence.DbContexts
     public class ScoreDbContext(DbContextOptions<ScoreDbContext> options)
         : DbContext(options)
     {
+        private const string SchemaDefault = SchemaConstants.Score;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-            modelBuilder.HasDefaultSchema(SchemaConstants.Score);
+            modelBuilder.HasDefaultSchema(SchemaDefault);
+
+            modelBuilder.HasPostgresEnum<CreditRiskLevelType>(schema: SchemaDefault);
+            modelBuilder.HasPostgresEnum<EntityStatusType>(schema: SchemaDefault);
 
             modelBuilder.Entity<RiskLevelRange>().SeedData();
             modelBuilder.Entity<CreditScore>().SeedData();

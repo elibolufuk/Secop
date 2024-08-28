@@ -2,7 +2,7 @@
 {
     public enum ApplicationStatusType
     {
-        Approved,
-        Rejected
+        Approved = 1,
+        Rejected = 2
     }
 }

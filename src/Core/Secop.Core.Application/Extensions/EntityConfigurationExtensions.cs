@@ -15,6 +15,13 @@ namespace Secop.Core.Application.Extensions
             return propertyBuilder;
         }
 
+        public static PropertyBuilder<TProperty> HasEnumColumnType<TProperty, TEnum>(this PropertyBuilder<TProperty> propertyBuilder) where TEnum : Enum
+        {
+            var typeName = GetEnumDatabaseName<TEnum>();
+            propertyBuilder.HasColumnType(ToSnakeCase(typeName));
+            return propertyBuilder;
+        }
+
         public static string HasTableName<T>()
         {
             return ToSnakeCase(typeof(T).Name);
@@ -36,6 +43,9 @@ namespace Secop.Core.Application.Extensions
 
             throw new ArgumentException("Invalid property expression");
         }
+
+        public static string GetEnumDatabaseName<TEnum>() where TEnum : Enum
+        => ToSnakeCase(typeof(TEnum).Name);
 
         private static string ToSnakeCase(this string propertyName)
         {

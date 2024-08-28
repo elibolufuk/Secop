@@ -2,8 +2,8 @@
 {
     public enum EntityStatusType
     {
-        Active,
-        Passive,
-        Deleted
+        Active = 1,
+        Passive = 2,
+        Deleted = 3
     }
 }

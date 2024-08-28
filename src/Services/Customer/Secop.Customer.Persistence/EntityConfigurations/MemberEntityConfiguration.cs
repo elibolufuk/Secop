@@ -33,7 +33,6 @@ namespace Secop.Customer.Persistence.EntityConfigurations
                 .IsRequired()
                 .HasMaxLength(150);
 
-            // TODO : postgre enum ile ilişkilendirilecek
             builder.Property(m => m.CustomerType)
                 .HasColumnDefaultName()
                 .HasColumnOrder(ColumnOrder)

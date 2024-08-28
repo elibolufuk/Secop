@@ -5,11 +5,11 @@
     "CreatedById": "f7b72d1c-36a5-489c-9989-d8fa9b0d8ea4",
     "UpdatedAt": null,
     "UpdatedById": null,
-    "EntityStatus": 1,
+    "EntityStatus": "Active",
     "FirstName": "Ahmet",
     "LastName": "Yılmaz",
     "Email": "ahmet.yilmaz@example.com",
-    "CustomerType": 0,
+    "CustomerType": "Individual",
     "DateOfBirth": "1985-06-15T00:00:00Z"
   }
 ]
