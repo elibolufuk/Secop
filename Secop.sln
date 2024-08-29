@@ -5,8 +5,6 @@ VisualStudioVersion = 17.11.35219.272
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{50811858-BA2D-436B-97B8-1036FC284492}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{5E730869-0DF7-4DD3-9AE8-BAFBF10290B3}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{4FAA9B1A-BA35-456C-9998-F92F6437D9F1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Secop.Core.Application", "src\Core\Secop.Core.Application\Secop.Core.Application.csproj", "{759CA56D-61D8-45CA-AD66-082BD57202E6}"
@@ -44,7 +42,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Secop.Customer.Persistence"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Secop.Score.Persistence", "src\Services\Score\Secop.Score.Persistence\Secop.Score.Persistence.csproj", "{54E35239-9466-44C5-B9B7-13CCBE13E83A}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker/docker-compose.dcproj", "{33C1865B-AF11-4859-A4A2-21CC73D2855D}"
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker\docker-compose.dcproj", "{33C1865B-AF11-4859-A4A2-21CC73D2855D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{04624930-F4CB-440D-AFE6-35958DA62CE3}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		sonar-project.properties = sonar-project.properties
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

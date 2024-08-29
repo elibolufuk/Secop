@@ -1,36 +1,70 @@
 services:
+  rabbitmq:
+    ports:
+        - "${RABBITMQ_EXTERNAL_CLI_PORT}:${RABBITMQ_INTERNAL_CLI_PORT}"
+        - "${RABBITMQ_EXTERNAL_BROWS_PORT}:${RABBITMQ_INTERNAL_BROWS_PORT}"
+    environment:
+        - RABBITMQ_ADMIN_USERNAME:${RABBITMQ_USER}
+        - RABBITMQ_ADMIN_PASSWORD:${RABBITMQ_PASS}
+        - RABBITMQ_DEFAULT_USERNAME:${RABBITMQ_USER}
+        - RABBITMQ_DEFAULT_PASSWORD:${RABBITMQ_PASS}
+        - RABBITMQ_DEFAULT_VHOST=/
+
+
+  # elasticsearch:
+  #   ports:
+  #       - ${ELASTICSEARCH_EXTERNAL_REST_PORT}:${ELASTICSEARCH_INTERNAL_REST_PORT}
+  #       - ${ELASTICSEARCH_EXTERNAL_CLUSTER_PORT}:${ELASTICSEARCH_INTERNAL_CLUSTER_PORT}
+
+  # kibana:
+  #   environment:
+  #       - ELASTICSEARCH_URL=http://elasticsearch:${ELASTICSEARCH_INTERNAL_REST_PORT}
+  #   ports:
+  #       - ${KIBANA_EXTERNAL_PORT}:${KIBANA_INTERNAL_PORT}
+ 
+
+  # mongodb:
+  #  ports:
+  #      - "${MONGODB_INTERNAL_PORT}:${MONGODB_EXTERNAL_PORT}"
+  #  environment:
+  #      - MONGO_INITDB_ROOT_USERNAME=${MONGODB_USERNAME}
+  #      - MONGO_INITDB_ROOT_PASSWORD=${MONGODB_PASSWORD}
+
+  # redisdb:
+  #  ports:
+  #    - '${REDIS_EXTERNAL_PORT}:${REDIS_INTERNAL_PORT}'
+
   approval.api:
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
       - ASPNETCORE_HTTP_PORTS=8080
       - ConnectionStrings__ApprovalDbContext=Host=${POSTGRES_HOST};Port=${POSTGRES_INTERNAL_PORT};Database=${POSTGRES_DATABASE};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD};
     ports:
-      - "5001:8080"
+      - "${APPROVAL_EXTERNAL_PORT}:8080"
 
 
   credit.api:
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
       - ASPNETCORE_HTTP_PORTS=8080
       - ConnectionStrings__CreditDbContext=Host=${POSTGRES_HOST};Port=${POSTGRES_INTERNAL_PORT};Database=${POSTGRES_DATABASE};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD};
     ports:
-      - "5002:8080"
+      - "${CREDIT_EXTERNAL_PORT}:8080"
 
 
   customer.api:
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
       - ASPNETCORE_HTTP_PORTS=8080
       - ConnectionStrings__CustomerDbContext=Host=${POSTGRES_HOST};Port=${POSTGRES_INTERNAL_PORT};Database=${POSTGRES_DATABASE};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD};
     ports:
-      - "5003:8080"
+      - "${CUSTOMER_EXTERNAL_PORT}:8080"
 
 
   score.api:
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
       - ASPNETCORE_HTTP_PORTS=8080
       - ConnectionStrings__ScoreDbContext=Host=${POSTGRES_HOST};Port=${POSTGRES_INTERNAL_PORT};Database=${POSTGRES_DATABASE};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD};
     ports:
-      - "5004:8080"
-
+      - "${SCORE_EXTERNAL_PORT}:8080"

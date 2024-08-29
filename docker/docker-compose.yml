@@ -15,6 +15,54 @@ services:
     networks:
         - internal
 
+  rabbitmq: 
+    container_name: queue.rabbitmq
+    image: rabbitmq:3-management
+    restart: always
+    volumes:
+        - rabbitmq-data-volume:/var/lib/rabbitmq/
+        - rabbitmq-data-volume:/var/log/rabbitmq/
+    networks:
+        - internal
+
+
+  # elasticsearch:  
+  #   container_name: elk.elasticsearch
+  #   image: docker.elastic.co/elasticsearch/elasticsearch:7.16.2
+  #   volumes:
+  #       - elk-data-volume:/usr/share/elasticsearch/data
+  #   environment:
+  #       - xpack.monitoring.enabled=true
+  #       - xpack.watcher.enabled=false
+  #       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+  #       - discovery.type=single-node
+  #   networks:
+  #       - internal
+  
+  # kibana:
+  #   container_name: elk.kibana
+  #   image: docker.elastic.co/kibana/kibana:7.16.2
+  #   depends_on:
+  #       - elasticsearch
+  #   networks:
+  #       - internal
+
+  # mongodb:
+  #  container_name: db.mongodb
+  #  image: mongo
+  #  restart: always
+  #  volumes:
+  #      - mongo-data-volume:/var/lib/mongodb/data
+  #      - mongo-data-volume:/var/lib/mongodb/configdb
+
+  # redisdb:
+  #  container_name: db.redis
+  #  image: redis:6.2-alpine
+  #  restart: always
+  #  command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+  #  volumes: 
+  #    - redis-data-volume:/data
+
 
   approval.api:
     image: ${DOCKER_REGISTRY-}secop/approval
@@ -58,7 +106,10 @@ services:
 
 volumes:
   postgres-data-volume:
-
+  rabbitmq-data-volume:
+  elk-data-volume:
+  mongo-data-volume:
+  redis-data-volume:
 
 networks:
     internal:

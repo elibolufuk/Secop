@@ -18,15 +18,20 @@ COPY ["src/Core/Secop.Core.Domain/Secop.Core.Domain.csproj", "src/Core/Secop.Cor
 RUN dotnet restore "./src/Services/Credit/Secop.Credit.Web.Api/Secop.Credit.Web.Api.csproj"
 COPY . .
 WORKDIR "/src/src/Services/Credit/Secop.Credit.Web.Api"
-RUN dotnet build "./Secop.Credit.Web.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "./Secop.Credit.Web.Api.csproj" -c "$BUILD_CONFIGURATION" -o /app/build
 
 # This stage is used to publish the service project to be copied to the final stage
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./Secop.Credit.Web.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./Secop.Credit.Web.Api.csproj" -c "$BUILD_CONFIGURATION" -o /app/publish /p:UseAppHost=false
 
 # This stage is used in production or when running from VS in regular mode (Default when not using the Debug configuration)
 FROM base AS final
+
+#appuser
+RUN addgroup --system appgroup && adduser --system myappuser --ingroup appgroup
+USER myappuser
+
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "Secop.Credit.Web.Api.dll"]
