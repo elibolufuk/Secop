@@ -1,6 +1,8 @@
+using Secop.Core.ApiCommon.Extensions;
 using Secop.Core.Application.Extensions;
 using Secop.Credit.Persistence.DbContexts;
 using Secop.Credit.Persistence.Extensions;
+using System.Reflection;
 internal class Program
 {
     private static void Main(string[] args)
@@ -11,6 +13,9 @@ internal class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
         builder.Services.AddServiceCollections(builder.Configuration);
+        builder.Services.AddApplicationServiceCollections(builder.Configuration);
+        builder.Services.AddMassTransitServices(builder.Configuration);
+        builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
         var app = builder.Build();
 

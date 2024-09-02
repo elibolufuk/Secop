@@ -5,6 +5,7 @@ using Npgsql;
 using Secop.Approval.Persistence.DbContexts;
 using Secop.Core.Application.Constants;
 using Secop.Core.Application.Extensions;
+using Secop.Core.Application.Features.Approval;
 using Secop.Core.Domain.Enums;
 
 namespace Secop.Approval.Persistence.Extensions
@@ -23,6 +24,9 @@ namespace Secop.Approval.Persistence.Extensions
                     x.MigrationsHistoryTable(SchemaConstants.MigrationsHistoryTableName, SchemaDefault);
                 });
             });
+
+            services.AddMediatR(c => c.RegisterServicesFromAssembly(typeof(ApprovalAssembly).Assembly));
+
             return services;
         }
 

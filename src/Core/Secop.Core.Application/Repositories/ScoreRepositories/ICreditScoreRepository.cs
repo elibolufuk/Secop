@@ -2,7 +2,7 @@
 
 namespace Secop.Core.Application.Repositories.ScoreRepositories
 {
-    public interface ICreditScoreRepository : IPostgreGenericRepository<CreditScore>
+    public interface ICreditScoreRepository : IGenericRepository<CreditScore>
     {
     }
 }

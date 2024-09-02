@@ -1,4 +1,4 @@
-﻿namespace Secop.Core.Application
+﻿namespace Secop.Core.Application.Results
 {
     public class DataActionResult
     {

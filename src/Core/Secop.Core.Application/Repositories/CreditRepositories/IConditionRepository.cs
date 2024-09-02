@@ -2,7 +2,7 @@
 
 namespace Secop.Core.Application.Repositories.CreditRepositories
 {
-    public interface IConditionRepository : IPostgreGenericRepository<Condition>
+    public interface IConditionRepository : IGenericRepository<Condition>
     {
     }
 }

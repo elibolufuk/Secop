@@ -1,5 +1,6 @@
 using Secop.Approval.Persistence.DbContexts;
 using Secop.Approval.Persistence.Extensions;
+using Secop.Core.ApiCommon.Extensions;
 using Secop.Core.Application.Extensions;
 
 internal class Program
@@ -12,6 +13,9 @@ internal class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
         builder.Services.AddServiceCollections(builder.Configuration);
+        builder.Services.AddApplicationServiceCollections(builder.Configuration);
+        builder.Services.AddMassTransitServices(builder.Configuration);
+        
         var app = builder.Build();
 
         app.Services.MigrateDatabase<ApprovalDbContext>();

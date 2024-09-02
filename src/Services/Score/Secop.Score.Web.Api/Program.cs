@@ -1,3 +1,4 @@
+using Secop.Core.ApiCommon.Extensions;
 using Secop.Core.Application.Extensions;
 using Secop.Score.Persistence.DbContexts;
 using Secop.Score.Persistence.Extensions;
@@ -12,6 +13,8 @@ internal class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
         builder.Services.AddServiceCollections(builder.Configuration);
+        builder.Services.AddApplicationServiceCollections(builder.Configuration);
+        builder.Services.AddMassTransitServices(builder.Configuration);
 
         var app = builder.Build();
 

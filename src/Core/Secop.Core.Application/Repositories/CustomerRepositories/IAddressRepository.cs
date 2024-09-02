@@ -2,7 +2,7 @@
 
 namespace Secop.Core.Application.Repositories.CustomerRepositories
 {
-    public interface IAddressRepository : IPostgreGenericRepository<Address>
+    public interface IAddressRepository : IGenericRepository<Address>
     {
     }
 }

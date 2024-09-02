@@ -4,8 +4,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Npgsql;
 using Secop.Core.Application.Constants;
 using Secop.Core.Application.Extensions;
+using Secop.Core.Application.Features.Credit;
+using Secop.Core.Application.Repositories;
+using Secop.Core.Application.Repositories.CreditRepositories;
 using Secop.Core.Domain.Enums;
 using Secop.Credit.Persistence.DbContexts;
+using Secop.Credit.Persistence.Repositories;
+using System.Reflection;
 
 namespace Secop.Credit.Persistence.Extensions
 {
@@ -23,6 +28,12 @@ namespace Secop.Credit.Persistence.Extensions
                     x.MigrationsHistoryTable(SchemaConstants.MigrationsHistoryTableName, SchemaDefault);
                 });
             });
+
+            services.AddMediatR(c => c.RegisterServicesFromAssembly(typeof(CreditAssembly).Assembly));
+
+            services.AddScoped(typeof(IGenericRepository<>), typeof(PostgreGenericRepository<>));
+            services.AddScoped<ICreditApplicationRepository, CreditApplicationRepository>();
+
             return services;
         }
 

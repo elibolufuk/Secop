@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Npgsql;
 using Secop.Core.Application.Constants;
 using Secop.Core.Application.Extensions;
+using Secop.Core.Application.Features.Customer;
 using Secop.Core.Domain.Enums;
 using Secop.Customer.Persistence.DbContexts;
 
@@ -23,6 +24,9 @@ namespace Secop.Customer.Persistence.Extensions
                     x.MigrationsHistoryTable(SchemaConstants.MigrationsHistoryTableName, SchemaDefault);
                 });
             });
+
+            //services.AddMediatR(c => c.RegisterServicesFromAssembly(typeof(CustomerAssembly).Assembly));
+
             return services;
         }
 

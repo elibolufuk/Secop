@@ -2,7 +2,7 @@
 
 namespace Secop.Core.Application.Repositories.ScoreRepositories
 {
-    public interface IRiskLevelRangeRepopsitory : IPostgreGenericRepository<RiskLevelRange>
+    public interface IRiskLevelRangeRepopsitory : IGenericRepository<RiskLevelRange>
     {
     }
 }

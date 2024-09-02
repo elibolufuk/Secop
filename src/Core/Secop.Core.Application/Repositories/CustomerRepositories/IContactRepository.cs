@@ -2,7 +2,7 @@
 
 namespace Secop.Core.Application.Repositories.CustomerRepositories
 {
-    public interface IContactRepository : IPostgreGenericRepository<Contact>
+    public interface IContactRepository : IGenericRepository<Contact>
     {
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Secop.Core.Application.Repositories.ApprovalRepositories
 {
-    public interface ILoanApprovalRepository : IPostgreGenericRepository<LoanApproval>
+    public interface ILoanApprovalRepository : IGenericRepository<LoanApproval>
     {
     }
 }
