@@ -4,7 +4,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Npgsql;
 using Secop.Core.Application.Constants;
 using Secop.Core.Application.Extensions;
-using Secop.Core.Application.Features.Score;
 using Secop.Core.Domain.Enums;
 using Secop.Score.Persistence.DbContexts;
 
@@ -12,7 +11,7 @@ namespace Secop.Score.Persistence.Extensions
 {
     public static class ServiceCollectionExtensions
     {
-        private const string SchemaDefault = SchemaConstants.Score;
+        private const string SchemaDefault = DatabaseSchemaConstants.Score;
 
         public static IServiceCollection AddServiceCollections(this IServiceCollection services, IConfiguration configuration)
         {
@@ -21,11 +20,12 @@ namespace Secop.Score.Persistence.Extensions
             {
                 options.UseNpgsql(dataSource, x =>
                 {
-                    x.MigrationsHistoryTable(SchemaConstants.MigrationsHistoryTableName, SchemaDefault);
+                    x.MigrationsHistoryTable(DatabaseSchemaConstants.MigrationsHistoryTableName, SchemaDefault);
                 });
             });
 
-            //services.AddMediatR(c => c.RegisterServicesFromAssembly(typeof(ScoreAssembly).Assembly));
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(ServiceCollectionExtensions).Assembly));
+            services.AddMediatRWithFiltering(ServiceHandlerType.Score);
 
             return services;
         }

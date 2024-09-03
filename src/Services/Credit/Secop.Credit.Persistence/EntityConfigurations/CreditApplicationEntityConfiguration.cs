@@ -12,7 +12,7 @@ namespace Secop.Credit.Persistence.EntityConfigurations
         public override void Configure(EntityTypeBuilder<CreditApplication> builder)
         {
             base.ConfigureBase(builder);
-            builder.ToTable(EntityConfigurationExtensions.HasTableName<CreditApplication>(), SchemaConstants.Credit);
+            builder.ToTable(EntityConfigurationExtensions.HasTableName<CreditApplication>(), DatabaseSchemaConstants.Credit);
 
             builder.Property(c => c.CustomerId)
                 .HasColumnDefaultName()

@@ -22,8 +22,7 @@ namespace Secop.Credit.Web.Api.Controllers
         {
             var createCreditApplicationCommand = _mapper.Map<CreateCreditApplicationCommand>(model);
             var response = await Mediator.Send(createCreditApplicationCommand);
-            // add creditApplication
-
+            
             var creditApplicationCreatedEvent = _mapper.Map<CreditApplicationCreatedEvent>(model);
             if (!response.Succeeded)
             {

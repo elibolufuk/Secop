@@ -11,7 +11,7 @@ namespace Secop.Customer.Persistence.EntityConfigurations
     {
         public override void Configure(EntityTypeBuilder<Contact> builder)
         {
-            builder.ToTable(EntityConfigurationExtensions.HasTableName<Contact>(), SchemaConstants.Customer);
+            builder.ToTable(EntityConfigurationExtensions.HasTableName<Contact>(), DatabaseSchemaConstants.Customer);
 
             builder.Property(c => c.PhoneNumber)
                 .HasColumnDefaultName()

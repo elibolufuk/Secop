@@ -10,7 +10,7 @@ namespace Secop.Customer.Persistence.DbContexts
     public class CustomerDbContext(DbContextOptions<CustomerDbContext> options)
         : DbContext(options)
     {
-        private const string SchemaDefault = SchemaConstants.Customer;
+        private const string SchemaDefault = DatabaseSchemaConstants.Customer;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

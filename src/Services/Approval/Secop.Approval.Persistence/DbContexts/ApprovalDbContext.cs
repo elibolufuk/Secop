@@ -10,7 +10,7 @@ namespace Secop.Approval.Persistence.DbContexts
     public class ApprovalDbContext(DbContextOptions<ApprovalDbContext> options)
         : DbContext(options)
     {
-        private const string SchemaDefault = SchemaConstants.Approval;
+        private const string SchemaDefault = DatabaseSchemaConstants.Approval;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

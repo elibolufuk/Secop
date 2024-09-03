@@ -11,7 +11,7 @@ namespace Secop.Customer.Persistence.EntityConfigurations
     {
         public override void Configure(EntityTypeBuilder<Member> builder)
         {
-            builder.ToTable(EntityConfigurationExtensions.HasTableName<Member>(), SchemaConstants.Customer);
+            builder.ToTable(EntityConfigurationExtensions.HasTableName<Member>(), DatabaseSchemaConstants.Customer);
 
             builder.HasKey(m => m.Id);
 

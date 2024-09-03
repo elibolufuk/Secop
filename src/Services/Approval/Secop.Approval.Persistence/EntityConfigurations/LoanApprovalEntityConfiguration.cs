@@ -13,7 +13,7 @@ namespace Secop.Approval.Persistence.EntityConfigurations
         {
             base.ConfigureBase(builder);
 
-            builder.ToTable(EntityConfigurationExtensions.HasTableName<LoanApproval>(), SchemaConstants.Approval);
+            builder.ToTable(EntityConfigurationExtensions.HasTableName<LoanApproval>(), DatabaseSchemaConstants.Approval);
 
             builder.Property(la => la.CreditApplicationId)
                 .HasColumnDefaultName()

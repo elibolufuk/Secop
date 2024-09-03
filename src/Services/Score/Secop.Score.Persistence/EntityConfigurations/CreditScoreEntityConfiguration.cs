@@ -13,7 +13,7 @@ namespace Secop.Score.Persistence.EntityConfigurations
         {
             base.ConfigureBase(builder);
 
-            builder.ToTable(EntityConfigurationExtensions.HasTableName<CreditScore>(), SchemaConstants.Score);
+            builder.ToTable(EntityConfigurationExtensions.HasTableName<CreditScore>(), DatabaseSchemaConstants.Score);
 
             builder.Property(cs => cs.CustomerId)
                 .HasColumnDefaultName()

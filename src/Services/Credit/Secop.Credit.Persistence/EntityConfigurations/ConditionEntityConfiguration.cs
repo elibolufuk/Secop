@@ -14,7 +14,7 @@ namespace Secop.Credit.Persistence.EntityConfigurations
         {
             base.ConfigureBase(builder);
             var tableName = EntityConfigurationExtensions.HasTableName<Condition>();
-            builder.ToTable(tableName, SchemaConstants.Credit, t =>
+            builder.ToTable(tableName, DatabaseSchemaConstants.Credit, t =>
             {
                 var minMonth = EntityConfigurationExtensions.GetColumnName<Condition>(rl => rl.MinMonth);
                 var maxMonth = EntityConfigurationExtensions.GetColumnName<Condition>(rl => rl.MaxMonth);

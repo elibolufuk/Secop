@@ -10,12 +10,12 @@ namespace Secop.Credit.Persistence.DbContexts
     public class CreditDbContext(DbContextOptions<CreditDbContext> options)
         : DbContext(options)
     {
-        private const string SchemaDefault = SchemaConstants.Credit;
+        private const string SchemaDefault = DatabaseSchemaConstants.Credit;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-            modelBuilder.HasDefaultSchema(SchemaConstants.Credit);
+            modelBuilder.HasDefaultSchema(DatabaseSchemaConstants.Credit);
 
             modelBuilder.HasPostgresEnum<CreditType>(schema: SchemaDefault);
             modelBuilder.HasPostgresEnum<EntityStatusType>(schema: SchemaDefault);

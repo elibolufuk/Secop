@@ -18,4 +18,9 @@
     <ProjectReference Include="..\Secop.Core.Domain\Secop.Core.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Customer\" />
+    <Folder Include="Features\Score\" />
+  </ItemGroup>
+
 </Project>

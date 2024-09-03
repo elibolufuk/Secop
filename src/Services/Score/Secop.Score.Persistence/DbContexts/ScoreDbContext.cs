@@ -10,7 +10,7 @@ namespace Secop.Score.Persistence.DbContexts
     public class ScoreDbContext(DbContextOptions<ScoreDbContext> options)
         : DbContext(options)
     {
-        private const string SchemaDefault = SchemaConstants.Score;
+        private const string SchemaDefault = DatabaseSchemaConstants.Score;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

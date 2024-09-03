@@ -1,12 +1,15 @@
 ﻿using AutoMapper;
 using MediatR;
+using Secop.Core.Application.Attributes;
+using Secop.Core.Application.Constants;
 using Secop.Core.Application.Repositories.CreditRepositories;
 using Secop.Core.Application.Results;
 using Secop.Core.Domain.Entities.CreditEntities;
 
 namespace Secop.Core.Application.Features.Credit.CreditApplications.Commands.Create
 {
-    internal class CreateCreditApplicationCommandHandler(IMapper mapper, ICreditApplicationRepository creditApplicationRepository)
+    [ServiceHandler(ServiceHandlerType.Credit)]
+    public class CreateCreditApplicationCommandHandler(IMapper mapper, ICreditApplicationRepository creditApplicationRepository)
         : IRequestHandler<CreateCreditApplicationCommand, ResponseResult<CreateCreditApplicationCommandResponse>>
     {
         private readonly IMapper _mapper = mapper;

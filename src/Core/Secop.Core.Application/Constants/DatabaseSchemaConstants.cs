@@ -1,6 +1,6 @@
 ﻿namespace Secop.Core.Application.Constants
 {
-    public class SchemaConstants
+    public class DatabaseSchemaConstants
     {
         public const string MigrationsHistoryTableName = "_migrations_history";
         public const string Approval = "approval";

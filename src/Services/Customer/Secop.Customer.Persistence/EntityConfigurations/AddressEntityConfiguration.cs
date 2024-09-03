@@ -11,7 +11,7 @@ namespace Secop.Customer.Persistence.EntityConfigurations
     {
         public override void Configure(EntityTypeBuilder<Address> builder)
         {
-            builder.ToTable(EntityConfigurationExtensions.HasTableName<Address>(), SchemaConstants.Customer);
+            builder.ToTable(EntityConfigurationExtensions.HasTableName<Address>(), DatabaseSchemaConstants.Customer);
 
             builder.Property(a => a.AddressLine1)
                 .HasColumnDefaultName()

@@ -4,19 +4,17 @@ using Microsoft.Extensions.DependencyInjection;
 using Npgsql;
 using Secop.Core.Application.Constants;
 using Secop.Core.Application.Extensions;
-using Secop.Core.Application.Features.Credit;
 using Secop.Core.Application.Repositories;
 using Secop.Core.Application.Repositories.CreditRepositories;
 using Secop.Core.Domain.Enums;
 using Secop.Credit.Persistence.DbContexts;
 using Secop.Credit.Persistence.Repositories;
-using System.Reflection;
 
 namespace Secop.Credit.Persistence.Extensions
 {
     public static class ServiceCollectionExtensions
     {
-        private const string SchemaDefault = SchemaConstants.Credit;
+        private const string SchemaDefault = DatabaseSchemaConstants.Credit;
 
         public static IServiceCollection AddServiceCollections(this IServiceCollection services, IConfiguration configuration)
         {
@@ -25,11 +23,12 @@ namespace Secop.Credit.Persistence.Extensions
             {
                 options.UseNpgsql(dataSource, x =>
                 {
-                    x.MigrationsHistoryTable(SchemaConstants.MigrationsHistoryTableName, SchemaDefault);
+                    x.MigrationsHistoryTable(DatabaseSchemaConstants.MigrationsHistoryTableName, SchemaDefault);
                 });
             });
 
-            services.AddMediatR(c => c.RegisterServicesFromAssembly(typeof(CreditAssembly).Assembly));
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(ServiceCollectionExtensions).Assembly));
+            services.AddMediatRWithFiltering(ServiceHandlerType.Credit);
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(PostgreGenericRepository<>));
             services.AddScoped<ICreditApplicationRepository, CreditApplicationRepository>();

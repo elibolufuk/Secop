@@ -5,14 +5,13 @@ using Npgsql;
 using Secop.Approval.Persistence.DbContexts;
 using Secop.Core.Application.Constants;
 using Secop.Core.Application.Extensions;
-using Secop.Core.Application.Features.Approval;
 using Secop.Core.Domain.Enums;
 
 namespace Secop.Approval.Persistence.Extensions
 {
     public static class ServiceCollectionExtensions
     {
-        private const string SchemaDefault = SchemaConstants.Approval;
+        private const string SchemaDefault = DatabaseSchemaConstants.Approval;
 
         public static IServiceCollection AddServiceCollections(this IServiceCollection services, IConfiguration configuration)
         {
@@ -21,11 +20,12 @@ namespace Secop.Approval.Persistence.Extensions
             {
                 options.UseNpgsql(dataSource, x =>
                 {
-                    x.MigrationsHistoryTable(SchemaConstants.MigrationsHistoryTableName, SchemaDefault);
+                    x.MigrationsHistoryTable(DatabaseSchemaConstants.MigrationsHistoryTableName, SchemaDefault);
                 });
             });
-
-            services.AddMediatR(c => c.RegisterServicesFromAssembly(typeof(ApprovalAssembly).Assembly));
+            
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(ServiceCollectionExtensions).Assembly));
+            services.AddMediatRWithFiltering(ServiceHandlerType.Approval);
 
             return services;
         }
@@ -35,7 +35,7 @@ namespace Secop.Approval.Persistence.Extensions
             var connectionStringsSection = configuration.GetConnectionString(nameof(ApprovalDbContext));
             ArgumentNullException.ThrowIfNull(connectionStringsSection);
             var dataSourceBuilder = new NpgsqlDataSourceBuilder(connectionStringsSection);
-            
+
             //Enum Mapping
             dataSourceBuilder.MapEnum<CreditRiskLevelType>($"{SchemaDefault}.{EntityConfigurationExtensions.GetEnumDatabaseName<CreditRiskLevelType>()}");
             dataSourceBuilder.MapEnum<ApplicationStatusType>($"{SchemaDefault}.{EntityConfigurationExtensions.GetEnumDatabaseName<ApplicationStatusType>()}");

@@ -14,7 +14,7 @@ namespace Secop.Score.Persistence.EntityConfigurations
             base.ConfigureBase(builder);
 
             var tableName = EntityConfigurationExtensions.HasTableName<RiskLevelRange>();
-            builder.ToTable(tableName, SchemaConstants.Score, t =>
+            builder.ToTable(tableName, DatabaseSchemaConstants.Score, t =>
             {
                 var minScore = EntityConfigurationExtensions.GetColumnName<RiskLevelRange>(rl => rl.MinScore);
                 var maxScore = EntityConfigurationExtensions.GetColumnName<RiskLevelRange>(rl => rl.MaxScore);
