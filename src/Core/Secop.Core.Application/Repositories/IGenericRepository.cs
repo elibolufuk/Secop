@@ -9,16 +9,19 @@ namespace Secop.Core.Application.Repositories
     {
         Task<IEnumerable<TEntity>> GetAllAsync();
 
-        Task<TEntity> GetByIdAsync(int id);
-
+        Task<TEntity> GetByIdAsync(Guid id);
+        Task<TEntity> FindByIdAsync(Guid id);
         Task AddAsync(TEntity entity);
 
         Task UpdateAsync(TEntity entity);
 
-        Task DeleteAsync(int id);
+        Task DeleteAsync(Guid id);
+        Task SoftDeleteAsync(Guid id);
 
         Task<DataActionResult> SaveAsync();
 
         Task<bool> AnyAsync(Expression<Func<TEntity, bool>> predicate);
+
+        Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate);
     }
 }

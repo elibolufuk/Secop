@@ -1,21 +1,15 @@
 ﻿using MassTransit;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Secop.Core.ApiCommon.Extensions
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddMassTransitServices(this IServiceCollection services, IConfiguration configuration, Type[]? consumers = null)
+        public static IServiceCollection AddMassTransitConfigureServices(this IServiceCollection services, Action<IBusRegistrationConfigurator> configurator)
         {
-            services.AddMassTransit(t =>
+            services.AddMassTransit(cfg =>
             {
-                consumers?.ToList().ForEach(consumer => t.AddConsumer(consumer));
-
-                t.UsingRabbitMq((context, cfg) =>
-                {
-                    cfg.Host(configuration.GetConnectionString("RabbitMqAmqp"));
-                });
+                configurator(cfg);
             });
 
             services.Configure<MassTransitHostOptions>(options =>

@@ -1,7 +1,8 @@
-using Secop.Core.ApiCommon.Extensions;
+using Secop.Core.Application.Constants;
 using Secop.Core.Application.Extensions;
 using Secop.Customer.Persistence.DbContexts;
 using Secop.Customer.Persistence.Extensions;
+using Secop.Customer.Web.Api.Extensions;
 
 internal class Program
 {
@@ -13,9 +14,9 @@ internal class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
         builder.Services.AddServiceCollections(builder.Configuration);
-        builder.Services.AddApplicationServiceCollections(builder.Configuration);
+        builder.Services.AddApplicationServiceCollections(builder.Configuration, ServiceHandlerType.Customer);
         builder.Services.AddMassTransitServices(builder.Configuration);
-        
+
         var app = builder.Build();
 
         app.Services.MigrateDatabase<CustomerDbContext>();

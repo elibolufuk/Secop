@@ -22,7 +22,7 @@ namespace Secop.Score.Persistence.Migrations
                 .HasAnnotation("ProductVersion", "8.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            NpgsqlModelBuilderExtensions.HasPostgresEnum(modelBuilder, "score", "credit_risk_level_type", new[] { "very_high_risk", "high_risk", "medium_risk", "good", "excellent" });
+            NpgsqlModelBuilderExtensions.HasPostgresEnum(modelBuilder, "score", "credit_risk_level_type", new[] { "none", "very_high_risk", "high_risk", "medium_risk", "good", "excellent" });
             NpgsqlModelBuilderExtensions.HasPostgresEnum(modelBuilder, "score", "entity_status_type", new[] { "active", "passive", "deleted" });
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
@@ -182,8 +182,8 @@ namespace Secop.Score.Persistence.Migrations
                             CreatedAt = new DateTime(2024, 8, 25, 11, 0, 0, 0, DateTimeKind.Utc),
                             CreatedById = new Guid("e0f2f77a-b7d4-4b8a-9f35-b0f60d1bdf6e"),
                             EntityStatus = EntityStatusType.Active,
-                            MaxScore = 599,
-                            MinScore = 300,
+                            MaxScore = 1199,
+                            MinScore = 1000,
                             RiskLevel = CreditRiskLevelType.VeryHighRisk
                         },
                         new
@@ -192,9 +192,39 @@ namespace Secop.Score.Persistence.Migrations
                             CreatedAt = new DateTime(2024, 8, 25, 12, 0, 0, 0, DateTimeKind.Utc),
                             CreatedById = new Guid("e0f2f77a-b7d4-4b8a-9f35-b0f60d1bdf6e"),
                             EntityStatus = EntityStatusType.Active,
-                            MaxScore = 799,
-                            MinScore = 600,
+                            MaxScore = 1399,
+                            MinScore = 1200,
                             RiskLevel = CreditRiskLevelType.HighRisk
+                        },
+                        new
+                        {
+                            Id = new Guid("0190d4db-25b9-4e34-bf03-737035a3e916"),
+                            CreatedAt = new DateTime(2024, 8, 25, 12, 0, 0, 0, DateTimeKind.Utc),
+                            CreatedById = new Guid("e0f2f77a-b7d4-4b8a-9f35-b0f60d1bdf6e"),
+                            EntityStatus = EntityStatusType.Active,
+                            MaxScore = 1599,
+                            MinScore = 1400,
+                            RiskLevel = CreditRiskLevelType.MediumRisk
+                        },
+                        new
+                        {
+                            Id = new Guid("fb14b253-61ea-4118-8e41-e8cddce4e0a3"),
+                            CreatedAt = new DateTime(2024, 8, 25, 12, 0, 0, 0, DateTimeKind.Utc),
+                            CreatedById = new Guid("e0f2f77a-b7d4-4b8a-9f35-b0f60d1bdf6e"),
+                            EntityStatus = EntityStatusType.Active,
+                            MaxScore = 1799,
+                            MinScore = 1600,
+                            RiskLevel = CreditRiskLevelType.Good
+                        },
+                        new
+                        {
+                            Id = new Guid("81f6a5c4-2c1e-4fed-9387-2774321feb30"),
+                            CreatedAt = new DateTime(2024, 8, 25, 12, 0, 0, 0, DateTimeKind.Utc),
+                            CreatedById = new Guid("e0f2f77a-b7d4-4b8a-9f35-b0f60d1bdf6e"),
+                            EntityStatus = EntityStatusType.Active,
+                            MaxScore = 1999,
+                            MinScore = 1800,
+                            RiskLevel = CreditRiskLevelType.Excellent
                         });
                 });
 #pragma warning restore 612, 618

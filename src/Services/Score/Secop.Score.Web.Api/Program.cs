@@ -1,7 +1,9 @@
-using Secop.Core.ApiCommon.Extensions;
+using Secop.Core.Application.Constants;
 using Secop.Core.Application.Extensions;
 using Secop.Score.Persistence.DbContexts;
 using Secop.Score.Persistence.Extensions;
+using Secop.Score.Web.Api.Extensions;
+using System.Reflection;
 
 internal class Program
 {
@@ -13,8 +15,9 @@ internal class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
         builder.Services.AddServiceCollections(builder.Configuration);
-        builder.Services.AddApplicationServiceCollections(builder.Configuration);
+        builder.Services.AddApplicationServiceCollections(builder.Configuration, ServiceHandlerType.Score);
         builder.Services.AddMassTransitServices(builder.Configuration);
+        builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
         var app = builder.Build();
 

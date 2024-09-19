@@ -1,7 +1,8 @@
-using Secop.Core.ApiCommon.Extensions;
+using Secop.Core.Application.Constants;
 using Secop.Core.Application.Extensions;
 using Secop.Credit.Persistence.DbContexts;
 using Secop.Credit.Persistence.Extensions;
+using Secop.Credit.Web.Api.Extensions;
 using System.Reflection;
 internal class Program
 {
@@ -13,7 +14,7 @@ internal class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
         builder.Services.AddServiceCollections(builder.Configuration);
-        builder.Services.AddApplicationServiceCollections(builder.Configuration);
+        builder.Services.AddApplicationServiceCollections(builder.Configuration, ServiceHandlerType.Credit);
         builder.Services.AddMassTransitServices(builder.Configuration);
         builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 

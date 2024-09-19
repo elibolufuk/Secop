@@ -4,8 +4,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Npgsql;
 using Secop.Core.Application.Constants;
 using Secop.Core.Application.Extensions;
+using Secop.Core.Application.Repositories;
+using Secop.Core.Application.Repositories.ScoreRepositories;
 using Secop.Core.Domain.Enums;
+using Secop.Credit.Persistence.Repositories;
 using Secop.Score.Persistence.DbContexts;
+using Secop.Score.Persistence.Repositories;
 
 namespace Secop.Score.Persistence.Extensions
 {
@@ -25,8 +29,10 @@ namespace Secop.Score.Persistence.Extensions
             });
 
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(ServiceCollectionExtensions).Assembly));
-            services.AddMediatRWithFiltering(ServiceHandlerType.Score);
 
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped<ICreditScoreRepository, CreditScoreRepository>();
+            services.AddScoped<IRiskLevelRangeRepository, RiskLevelRangeRepository>();
             return services;
         }
 

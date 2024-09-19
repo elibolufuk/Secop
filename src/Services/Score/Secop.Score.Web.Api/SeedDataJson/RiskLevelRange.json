@@ -7,8 +7,8 @@
     "UpdatedById": null,
     "EntityStatus": 1,
     "RiskLevel": 1,
-    "MinScore": 300,
-    "MaxScore": 599
+    "MinScore": 1000,
+    "MaxScore": 1199
   },
   {
     "Id": "3d9f8d5e-6476-4dbe-85db-6d7879fc317d",
@@ -18,7 +18,40 @@
     "UpdatedById": null,
     "EntityStatus": 1,
     "RiskLevel": 2,
-    "MinScore": 600,
-    "MaxScore": 799
+    "MinScore": 1200,
+    "MaxScore": 1399
+  },
+  {
+    "Id": "0190d4db-25b9-4e34-bf03-737035a3e916",
+    "CreatedAt": "2024-08-25T12:00:00Z",
+    "CreatedById": "e0f2f77a-b7d4-4b8a-9f35-b0f60d1bdf6e",
+    "UpdatedAt": null,
+    "UpdatedById": null,
+    "EntityStatus": 1,
+    "RiskLevel": 3,
+    "MinScore": 1400,
+    "MaxScore": 1599
+  },
+  {
+    "Id": "fb14b253-61ea-4118-8e41-e8cddce4e0a3",
+    "CreatedAt": "2024-08-25T12:00:00Z",
+    "CreatedById": "e0f2f77a-b7d4-4b8a-9f35-b0f60d1bdf6e",
+    "UpdatedAt": null,
+    "UpdatedById": null,
+    "EntityStatus": 1,
+    "RiskLevel": 4,
+    "MinScore": 1600,
+    "MaxScore": 1799
+  },
+  {
+    "Id": "81f6a5c4-2c1e-4fed-9387-2774321feb30",
+    "CreatedAt": "2024-08-25T12:00:00Z",
+    "CreatedById": "e0f2f77a-b7d4-4b8a-9f35-b0f60d1bdf6e",
+    "UpdatedAt": null,
+    "UpdatedById": null,
+    "EntityStatus": 1,
+    "RiskLevel": 5,
+    "MinScore": 1800,
+    "MaxScore": 1999
   }
 ]

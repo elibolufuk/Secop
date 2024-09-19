@@ -19,6 +19,8 @@ namespace Secop.Credit.Persistence.DbContexts
 
             modelBuilder.HasPostgresEnum<CreditType>(schema: SchemaDefault);
             modelBuilder.HasPostgresEnum<EntityStatusType>(schema: SchemaDefault);
+            modelBuilder.HasPostgresEnum<ApplicationStatusType>(schema: SchemaDefault);
+            modelBuilder.HasPostgresEnum<CreditRiskLevelType>(schema: SchemaDefault);
 
             modelBuilder.Entity<Condition>().SeedData();
             modelBuilder.Entity<CreditApplication>().SeedData();

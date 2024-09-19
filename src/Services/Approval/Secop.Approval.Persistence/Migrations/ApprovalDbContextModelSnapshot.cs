@@ -22,8 +22,8 @@ namespace Secop.Approval.Persistence.Migrations
                 .HasAnnotation("ProductVersion", "8.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            NpgsqlModelBuilderExtensions.HasPostgresEnum(modelBuilder, "approval", "application_status_type", new[] { "approved", "rejected" });
-            NpgsqlModelBuilderExtensions.HasPostgresEnum(modelBuilder, "approval", "credit_risk_level_type", new[] { "very_high_risk", "high_risk", "medium_risk", "good", "excellent" });
+            NpgsqlModelBuilderExtensions.HasPostgresEnum(modelBuilder, "approval", "application_status_type", new[] { "application_received", "approved", "rejected" });
+            NpgsqlModelBuilderExtensions.HasPostgresEnum(modelBuilder, "approval", "credit_risk_level_type", new[] { "none", "very_high_risk", "high_risk", "medium_risk", "good", "excellent" });
             NpgsqlModelBuilderExtensions.HasPostgresEnum(modelBuilder, "approval", "entity_status_type", new[] { "active", "passive", "deleted" });
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 

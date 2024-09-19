@@ -10,7 +10,9 @@
     "Amount": 20000.00,
     "TermMonths": 24,
     "CreditType": "Personal",
-    "ApplicationDate": "2024-08-24T18:30:00Z"
+    "ApplicationDate": "2024-08-24T18:30:00Z",
+    "RiskLevelType": "None",
+    "ApplicationStatus": "ApplicationReceived"
   },
   {
     "Id": "12b4556d-8c2d-42f1-a125-e1d13a3d7c4b",
@@ -23,6 +25,8 @@
     "Amount": 35000.00,
     "TermMonths": 36,
     "CreditType": "Mortgage",
-    "ApplicationDate": "2024-08-25T08:45:00Z"
+    "ApplicationDate": "2024-08-25T08:45:00Z",
+    "RiskLevelType": "None",
+    "ApplicationStatus": "ApplicationReceived"
   }
 ]

@@ -4,6 +4,7 @@ using Secop.Core.Application.Constants;
 using Secop.Core.Application.EntityConfigurations;
 using Secop.Core.Domain.Entities.CreditEntities;
 using Secop.Core.Application.Extensions;
+using Secop.Core.Domain.Enums;
 
 namespace Secop.Credit.Persistence.EntityConfigurations
 {
@@ -40,6 +41,25 @@ namespace Secop.Credit.Persistence.EntityConfigurations
                 .HasColumnOrder(ColumnOrder)
                 .IsRequired()
                 .HasDefaultValueSql(EntityConfigurationConstants.DateTimeColumnType);
+
+
+            builder.Property(p => p.RiskLevelType)
+                .HasColumnDefaultName()
+                .HasColumnOrder(ColumnOrder)
+                .IsRequired()
+                .HasDefaultValue(CreditRiskLevelType.None);
+
+            builder.Property(p => p.ApplicationStatus)
+                .HasColumnDefaultName()
+                .HasColumnOrder(ColumnOrder)
+                .IsRequired()
+                .HasDefaultValue(ApplicationStatusType.ApplicationReceived);
+
+            builder.Property(p => p.Comment)
+                .HasColumnDefaultName()
+                .HasColumnOrder(ColumnOrder)
+                .HasMaxLength(500)
+                .IsRequired(false);
         }
     }
 }

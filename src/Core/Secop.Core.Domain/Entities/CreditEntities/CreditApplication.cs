@@ -11,5 +11,8 @@ namespace Secop.Core.Domain.Entities.CreditEntities
         public int TermMonths { get; set; }
         public CreditType CreditType { get; set; }
         public DateTime ApplicationDate { get; set; }
+        public CreditRiskLevelType RiskLevelType { get; set; }
+        public ApplicationStatusType ApplicationStatus { get; set; }
+        public string Comment { get; set; }
     }
 }

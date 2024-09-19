@@ -9,14 +9,14 @@ namespace Secop.Core.Application.Extensions
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddApplicationServiceCollections(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddApplicationServiceCollections(this IServiceCollection services, IConfiguration configuration, ServiceHandlerType serviceType)
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
-
+            services.AddMediatRWithFiltering(serviceType);
             return services;
         }
 
-        public static IServiceCollection AddMediatRWithFiltering(this IServiceCollection services, ServiceHandlerType serviceType)
+        private static IServiceCollection AddMediatRWithFiltering(this IServiceCollection services, ServiceHandlerType serviceType)
         {
             var assemblies = new List<Assembly>();
             var assembly = Assembly.GetExecutingAssembly();
@@ -26,20 +26,18 @@ namespace Secop.Core.Application.Extensions
                 .Where(t => t.GetCustomAttributes<ServiceHandlerAttribute>().Any(attr => attr.ServiceType == serviceType))
                 .Distinct();
 
-            foreach (var handlerType in handlerTypes)
+            handlerTypes?.ToList()
+                .ForEach(handlerType =>
             {
-                var interfaces = handlerType.GetInterfaces()
-                    .Where(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IRequestHandler<,>))
-                    .ToList();
-
-                foreach (var @interface in interfaces)
+                var interfaces = handlerType.GetInterfaces();
+                interfaces?.ToList()
+                .ForEach(@interface =>
                 {
                     services.AddTransient(@interface, handlerType);
-                }
-            }
+                });
+            });
 
             return services;
         }
-
     }
 }

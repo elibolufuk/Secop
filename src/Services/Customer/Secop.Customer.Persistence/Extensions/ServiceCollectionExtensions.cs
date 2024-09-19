@@ -25,7 +25,6 @@ namespace Secop.Customer.Persistence.Extensions
             });
 
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(ServiceCollectionExtensions).Assembly));
-            services.AddMediatRWithFiltering(ServiceHandlerType.Customer);
 
             return services;
         }

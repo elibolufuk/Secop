@@ -3,8 +3,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Npgsql;
 using Secop.Approval.Persistence.DbContexts;
+using Secop.Approval.Persistence.Repositories;
 using Secop.Core.Application.Constants;
 using Secop.Core.Application.Extensions;
+using Secop.Core.Application.Repositories;
+using Secop.Core.Application.Repositories.ApprovalRepositories;
 using Secop.Core.Domain.Enums;
 
 namespace Secop.Approval.Persistence.Extensions
@@ -25,8 +28,9 @@ namespace Secop.Approval.Persistence.Extensions
             });
             
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(ServiceCollectionExtensions).Assembly));
-            services.AddMediatRWithFiltering(ServiceHandlerType.Approval);
 
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped<ILoanApprovalRepository, LoanApprovalRepository>();
             return services;
         }
 

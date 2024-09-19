@@ -5,6 +5,7 @@ using Secop.Core.Application.Constants;
 using Secop.Core.Application.Repositories.CreditRepositories;
 using Secop.Core.Application.Results;
 using Secop.Core.Domain.Entities.CreditEntities;
+using Secop.Core.Domain.Enums;
 
 namespace Secop.Core.Application.Features.Credit.CreditApplications.Commands.Create
 {
@@ -22,6 +23,7 @@ namespace Secop.Core.Application.Features.Credit.CreditApplications.Commands.Cre
             creditApplication.Id = Guid.NewGuid();
             creditApplication.ApplicationDate = DateTime.UtcNow;
             creditApplication.CreatedById = Guid.Empty;
+            creditApplication.ApplicationStatus = ApplicationStatusType.ApplicationReceived;
 
             await _creditApplicationRepository.AddAsync(creditApplication);
             var result = await _creditApplicationRepository.SaveAsync();
@@ -29,7 +31,7 @@ namespace Secop.Core.Application.Features.Credit.CreditApplications.Commands.Cre
             if (result.Success)
                 return new()
                 {
-                    Succeeded = false,
+                    Succeeded = true,
                     Data = new() { Id = creditApplication.Id }
                 };
 

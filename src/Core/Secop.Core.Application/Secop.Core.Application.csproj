@@ -19,8 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Features\Approval\LoanApprovals\Commands\Update\" />
     <Folder Include="Features\Customer\" />
-    <Folder Include="Features\Score\" />
   </ItemGroup>
 
 </Project>

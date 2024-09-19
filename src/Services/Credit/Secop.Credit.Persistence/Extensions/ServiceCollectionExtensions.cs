@@ -28,9 +28,8 @@ namespace Secop.Credit.Persistence.Extensions
             });
 
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(ServiceCollectionExtensions).Assembly));
-            services.AddMediatRWithFiltering(ServiceHandlerType.Credit);
 
-            services.AddScoped(typeof(IGenericRepository<>), typeof(PostgreGenericRepository<>));
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<ICreditApplicationRepository, CreditApplicationRepository>();
 
             return services;
@@ -43,6 +42,8 @@ namespace Secop.Credit.Persistence.Extensions
             var dataSourceBuilder = new NpgsqlDataSourceBuilder(connectionStringsSection);
 
             dataSourceBuilder.MapEnum<CreditType>($"{SchemaDefault}.{EntityConfigurationExtensions.GetEnumDatabaseName<CreditType>()}");
+            dataSourceBuilder.MapEnum<CreditRiskLevelType>($"{SchemaDefault}.{EntityConfigurationExtensions.GetEnumDatabaseName<CreditRiskLevelType>()}");
+            dataSourceBuilder.MapEnum<ApplicationStatusType>($"{SchemaDefault}.{EntityConfigurationExtensions.GetEnumDatabaseName<ApplicationStatusType>()}");
             dataSourceBuilder.MapEnum<EntityStatusType>($"{SchemaDefault}.{EntityConfigurationExtensions.GetEnumDatabaseName<EntityStatusType>()}");
 
             return dataSourceBuilder.Build();
