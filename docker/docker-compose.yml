@@ -63,46 +63,58 @@ services:
   #  volumes: 
   #    - redis-data-volume:/data
 
+  gateway.api:
+    image: ${DOCKER_REGISTRY-}secopgatewayapi
+    container_name: api.gateway
+    depends_on:
+        - credit.api.v1
+        - approval.api.v1
+        - customer.api.v1
+        - score.api.v1
+    build:
+      context: ./../src
+      dockerfile: Gateway/Secop.Gateway.Api/Dockerfile
+    networks:
+        - internal
 
-  approval.api:
-    image: ${DOCKER_REGISTRY-}secop/approval
-    container_name: api.approval
+  approval.api.v1:
+    image: ${DOCKER_REGISTRY-}secop/v1/approval
+    container_name: api.v1.approval
     build:
       context: ./../src/Services
-      dockerfile: Approval/Secop.Approval.Web.Api/Dockerfile
+      dockerfile: Approval/Secop.Approval.Web.Api.V1/Dockerfile
     networks:
         - internal
 
 
-  credit.api:
-    image: ${DOCKER_REGISTRY-}secop/credit
-    container_name: api.credit
+  credit.api.v1:
+    image: ${DOCKER_REGISTRY-}secop/v1/credit
+    container_name: api.v1.credit
     build:
       context: ./../src/Services
-      dockerfile: Credit/Secop.Credit.Web.Api/Dockerfile
+      dockerfile: Credit/Secop.Credit.Web.Api.V1/Dockerfile
     networks:
         - internal
 
 
-  customer.api:
-    image: ${DOCKER_REGISTRY-}secop/customer
-    container_name: api.customer
+  customer.api.v1:
+    image: ${DOCKER_REGISTRY-}secop/v1/customer
+    container_name: api.v1.customer
     build:
       context: ./../src/Services
-      dockerfile: Customer/Secop.Customer.Web.Api/Dockerfile
+      dockerfile: Customer/Secop.Customer.Web.Api.V1/Dockerfile
     networks:
         - internal
 
 
-  score.api:
-    image: ${DOCKER_REGISTRY-}secop/score
-    container_name: api.score
+  score.api.v1:
+    image: ${DOCKER_REGISTRY-}secop/v1/score
+    container_name: api.v1.score
     build:
       context: ./../src/Services
-      dockerfile: Score/Secop.Score.Web.Api/Dockerfile
+      dockerfile: Score/Secop.Score.Web.Api.V1/Dockerfile
     networks:
         - internal
-
 
 volumes:
   postgres-data-volume:
