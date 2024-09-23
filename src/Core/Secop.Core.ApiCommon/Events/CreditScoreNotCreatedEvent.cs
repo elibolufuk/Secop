@@ -3,6 +3,6 @@
     public class CreditScoreNotCreatedEvent
     {
         public Guid CreditApplicationId { get; set; }
-        public string Message { get; set; }
+        public string? Message { get; set; }
     }
 }

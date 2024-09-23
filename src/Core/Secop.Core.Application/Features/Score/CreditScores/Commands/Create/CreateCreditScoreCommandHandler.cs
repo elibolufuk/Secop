@@ -26,15 +26,15 @@ namespace Secop.Core.Application.Features.Score.CreditScores.Commands.Create
 
             var score = await _mediator.Send(new GetRiskLevelByScoreQuery() { Score = creditScore.Score }, cancellationToken);
             if (!score.Succeeded)
-                return new() { Data = null, Succeeded = false };
+                return new() { Data = new(), Succeeded = false };
 
             creditScore.RiskLevel = score.Data.RiskLevel;
 
-            await _creditScoreRepository.AddAsync(creditScore);
+            await _creditScoreRepository.Add(creditScore);
             var result = await _creditScoreRepository.SaveAsync();
 
             if (!result.Success)
-                return new() { Data = null, Succeeded = false };
+                return new() { Data = new(), Succeeded = false };
 
             var responseData = _mapper.Map<CreateCreditScoreCommandResponse>(creditScore);
             return new()

@@ -11,6 +11,6 @@ namespace Secop.Core.Application.Features.Approval.LoanApprovals.Commands.Create
         public int Score { get; set; }
         public CreditRiskLevelType RiskLevel { get; set; }
         public ApplicationStatusType ApplicationStatus { get; set; }
-        public string Comment { get; set; }
+        public string? Comment { get; set; }
     }
 }

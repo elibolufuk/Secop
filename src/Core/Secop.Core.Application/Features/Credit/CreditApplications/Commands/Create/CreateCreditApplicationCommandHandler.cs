@@ -25,7 +25,7 @@ namespace Secop.Core.Application.Features.Credit.CreditApplications.Commands.Cre
             creditApplication.CreatedById = Guid.Empty;
             creditApplication.ApplicationStatus = ApplicationStatusType.ApplicationReceived;
 
-            await _creditApplicationRepository.AddAsync(creditApplication);
+            await _creditApplicationRepository.Add(creditApplication);
             var result = await _creditApplicationRepository.SaveAsync();
 
             if (result.Success)

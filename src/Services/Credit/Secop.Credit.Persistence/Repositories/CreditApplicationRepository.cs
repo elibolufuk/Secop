@@ -4,10 +4,7 @@ using Secop.Credit.Persistence.DbContexts;
 
 namespace Secop.Credit.Persistence.Repositories
 {
-    public class CreditApplicationRepository : GenericRepository<CreditApplication>, ICreditApplicationRepository
+    public class CreditApplicationRepository(CreditDbContext context) : GenericRepository<CreditApplication>(context), ICreditApplicationRepository
     {
-        public CreditApplicationRepository(CreditDbContext context) : base(context)
-        {
-        }
     }
 }

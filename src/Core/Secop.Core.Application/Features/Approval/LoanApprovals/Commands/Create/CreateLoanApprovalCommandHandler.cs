@@ -33,7 +33,7 @@ namespace Secop.Core.Application.Features.Approval.LoanApprovals.Commands.Create
             };
             loanApproval.Comment = $"Kredi başvurusu {commentStatusText}.";
 
-            await _loanApprovalRepository.AddAsync(loanApproval);
+            await _loanApprovalRepository.Add(loanApproval);
             var result = await _loanApprovalRepository.SaveAsync();
 
             if (result.Success)

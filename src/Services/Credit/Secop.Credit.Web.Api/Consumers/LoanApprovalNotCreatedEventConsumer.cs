@@ -10,7 +10,7 @@ namespace Secop.Credit.Web.Api.Consumers
         : IConsumer<LoanApprovalNotCreatedEvent>
     {
         private readonly IMediator _mediator = mediator;
-        private ILogger<LoanApprovalNotCreatedEventConsumer> _logger;
+        private readonly ILogger<LoanApprovalNotCreatedEventConsumer> _logger = logger;
         public async Task Consume(ConsumeContext<LoanApprovalNotCreatedEvent> context)
         {
             _logger.LogInformation($"{nameof(LoanApprovalNotCreatedEvent)} receipt Event : {{Event}}", JsonConvert.SerializeObject(context.Message));

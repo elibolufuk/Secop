@@ -7,7 +7,6 @@ using Secop.Core.Application.Extensions;
 using Secop.Core.Application.Repositories;
 using Secop.Core.Application.Repositories.ScoreRepositories;
 using Secop.Core.Domain.Enums;
-using Secop.Credit.Persistence.Repositories;
 using Secop.Score.Persistence.DbContexts;
 using Secop.Score.Persistence.Repositories;
 

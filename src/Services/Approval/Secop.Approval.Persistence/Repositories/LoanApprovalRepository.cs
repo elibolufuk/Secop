@@ -4,10 +4,7 @@ using Secop.Core.Domain.Entities.ApprovalEntities;
 
 namespace Secop.Approval.Persistence.Repositories
 {
-    public class LoanApprovalRepository : GenericRepository<LoanApproval>, ILoanApprovalRepository
+    public class LoanApprovalRepository(ApprovalDbContext context) : GenericRepository<LoanApproval>(context), ILoanApprovalRepository
     {
-        public LoanApprovalRepository(ApprovalDbContext context) : base(context)
-        {
-        }
     }
 }

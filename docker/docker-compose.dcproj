@@ -7,7 +7,7 @@
     <ProjectGuid>33c1865b-af11-4859-a4a2-21cc73d2855d</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
-    <DockerServiceName>approval.api</DockerServiceName>
+    <DockerServiceName>credit.api</DockerServiceName>
     <DockerComposeProjectName>secop</DockerComposeProjectName>
   </PropertyGroup>
   <ItemGroup>

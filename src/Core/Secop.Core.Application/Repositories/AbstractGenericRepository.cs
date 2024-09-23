@@ -18,7 +18,7 @@ namespace Secop.Core.Application.Repositories
             DbSet = Context.Set<TEntity>();
         }
 
-        public virtual async Task AddAsync(TEntity entity)
+        public virtual async Task Add(TEntity entity)
         {
             if (entity == null)
                 return;
@@ -29,7 +29,9 @@ namespace Secop.Core.Application.Repositories
             if (entity?.Id == Guid.Empty)
                 entity.Id = Guid.NewGuid();
 
+#pragma warning disable CS8604 // Possible null reference argument.
             await DbSet.AddAsync(entity);
+#pragma warning restore CS8604 // Possible null reference argument.
         }
 
         public virtual async Task<bool> AnyAsync(Expression<Func<TEntity, bool>> predicate)
@@ -37,14 +39,17 @@ namespace Secop.Core.Application.Repositories
             return await DbSet.AsNoTracking().AnyAsync(predicate);
         }
 
-        public virtual async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate)
+        public virtual async Task<TEntity?> GetAsync(Expression<Func<TEntity, bool>> predicate)
         {
-            return await DbSet.Where(predicate).AsNoTracking().FirstOrDefaultAsync();
+            return await DbSet.AsNoTracking().Where(predicate).FirstOrDefaultAsync();
         }
 
         public virtual async Task DeleteAsync(Guid id)
         {
-            TEntity entity = await GetByIdAsync(id);
+            if (id == Guid.Empty)
+                return;
+
+            var entity = await GetByIdAsync(id);
             if (entity != null)
             {
                 DbSet.Remove(entity);
@@ -66,13 +71,16 @@ namespace Secop.Core.Application.Repositories
             return await DbSet.AsNoTracking().ToListAsync();
         }
 
-        public virtual async Task<TEntity> GetByIdAsync(Guid id)
+        public virtual async Task<TEntity?> GetByIdAsync(Guid id)
         {
             return await DbSet.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public virtual async Task<TEntity> FindByIdAsync(Guid id)
+        public virtual async Task<TEntity?> FindByIdAsync(Guid id)
         {
+            if (id == Guid.Empty)
+                return default;
+
             return await DbSet.FindAsync(id);
         }
 
@@ -97,12 +105,19 @@ namespace Secop.Core.Application.Repositories
             }
         }
 
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
         public virtual async Task UpdateAsync(TEntity entity)
+#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
+            if (entity == null)
+                return;
+
             if (entity?.UpdatedAt == DateTime.MinValue)
                 entity.UpdatedAt = DateTime.UtcNow;
 
+#pragma warning disable CS8604 // Possible null reference argument.
             DbSet.Attach(entity);
+#pragma warning restore CS8604 // Possible null reference argument.
         }
 
         public virtual IQueryable<TEntity> GetQueryable()

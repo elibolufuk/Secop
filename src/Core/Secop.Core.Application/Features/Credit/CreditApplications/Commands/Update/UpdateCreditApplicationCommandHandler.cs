@@ -14,6 +14,9 @@ namespace Secop.Core.Application.Features.Credit.CreditApplications.Commands.Upd
         {
             var creditApplication = await _creditApplicationRepository.FindByIdAsync(request.Id);
 
+            if (creditApplication == null)
+                return new() { Succeeded = false };
+
             if (request.RiskLevel.HasValue)
                 creditApplication.RiskLevelType = request.RiskLevel.Value;
             if (request.ApplicationStatus.HasValue)

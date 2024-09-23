@@ -9,9 +9,9 @@ namespace Secop.Core.Application.Repositories
     {
         Task<IEnumerable<TEntity>> GetAllAsync();
 
-        Task<TEntity> GetByIdAsync(Guid id);
-        Task<TEntity> FindByIdAsync(Guid id);
-        Task AddAsync(TEntity entity);
+        Task<TEntity?> GetByIdAsync(Guid id);
+        Task<TEntity?> FindByIdAsync(Guid id);
+        Task Add(TEntity entity);
 
         Task UpdateAsync(TEntity entity);
 
@@ -22,6 +22,6 @@ namespace Secop.Core.Application.Repositories
 
         Task<bool> AnyAsync(Expression<Func<TEntity, bool>> predicate);
 
-        Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate);
+        Task<TEntity?> GetAsync(Expression<Func<TEntity, bool>> predicate);
     }
 }
