@@ -4,17 +4,18 @@ using Secop.Core.Application.Constants;
 using Secop.Core.Application.EntityConfigurations;
 using Secop.Core.Domain.Entities.CreditEntities;
 using Secop.Core.Application.Extensions;
-using Secop.Core.Domain.Entities.ScoreEntities;
 
 namespace Secop.Credit.Persistence.EntityConfigurations
 {
     public class ConditionEntityConfiguration : BaseEntityConfiguration<Condition>
     {
+        private const string _databaseSchema = DatabaseSchemaConstants.Credit;
+
         public override void Configure(EntityTypeBuilder<Condition> builder)
         {
             base.ConfigureBase(builder);
             var tableName = EntityConfigurationExtensions.HasTableName<Condition>();
-            builder.ToTable(tableName, DatabaseSchemaConstants.Credit, t =>
+            builder.ToTable(tableName, _databaseSchema, t =>
             {
                 var minMonth = EntityConfigurationExtensions.GetColumnName<Condition>(rl => rl.MinMonth);
                 var maxMonth = EntityConfigurationExtensions.GetColumnName<Condition>(rl => rl.MaxMonth);

@@ -10,16 +10,16 @@ namespace Secop.Approval.Persistence.DbContexts
     public class ApprovalDbContext(DbContextOptions<ApprovalDbContext> options)
         : DbContext(options)
     {
-        private const string SchemaDefault = DatabaseSchemaConstants.Approval;
+        private readonly string _schemaDefault = DatabaseSchemaConstants.Approval;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-            modelBuilder.HasDefaultSchema(SchemaDefault);
+            modelBuilder.HasDefaultSchema(_schemaDefault);
 
-            modelBuilder.HasPostgresEnum<CreditRiskLevelType>(schema: SchemaDefault);
-            modelBuilder.HasPostgresEnum<ApplicationStatusType>(schema: SchemaDefault);
-            modelBuilder.HasPostgresEnum<EntityStatusType>(schema: SchemaDefault);
+            modelBuilder.HasPostgresEnum<CreditRiskLevelType>(schema: _schemaDefault);
+            modelBuilder.HasPostgresEnum<ApplicationStatusType>(schema: _schemaDefault);
+            modelBuilder.HasPostgresEnum<EntityStatusType>(schema: _schemaDefault);
 
             modelBuilder.Entity<LoanApproval>().SeedData();
         }

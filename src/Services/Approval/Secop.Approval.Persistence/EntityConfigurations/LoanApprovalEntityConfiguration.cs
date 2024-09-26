@@ -7,13 +7,16 @@ using Secop.Core.Application.Extensions;
 
 namespace Secop.Approval.Persistence.EntityConfigurations
 {
-    public class LoanApprovalEntityConfiguration : BaseEntityConfiguration<LoanApproval>
+    public class LoanApprovalEntityConfiguration
+        : BaseEntityConfiguration<LoanApproval>
     {
+        private const string _databaseSchema = DatabaseSchemaConstants.Approval;
+
         public override void Configure(EntityTypeBuilder<LoanApproval> builder)
         {
             base.ConfigureBase(builder);
 
-            builder.ToTable(EntityConfigurationExtensions.HasTableName<LoanApproval>(), DatabaseSchemaConstants.Approval);
+            builder.ToTable(EntityConfigurationExtensions.HasTableName<LoanApproval>(), _databaseSchema);
 
             builder.Property(la => la.CreditApplicationId)
                 .HasColumnDefaultName()

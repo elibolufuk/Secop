@@ -5,6 +5,8 @@
         Approval,
         Credit,
         Customer,
-        Score
+        Score,
+        Repayment,
+        Notification
     }
 }

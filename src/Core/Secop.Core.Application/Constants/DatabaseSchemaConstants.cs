@@ -7,5 +7,6 @@
         public const string Credit = "credit";
         public const string Customer = "customer";
         public const string Score = "score";
+        public const string Repayment = "repayment";
     }
 }

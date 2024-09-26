@@ -8,7 +8,12 @@
         "credit.api": "StartDebugging",
         "customer.api": "StartDebugging",
         "score.api": "StartDebugging",
-        "secop.gateway.api": "StartDebugging"
+        "secop.gateway.api": "StartDebugging",
+        "secop.credit.web.api.v2": "StartDebugging",
+        "secop.approval.web.api.v2": "StartDebugging",
+        "secop.score.web.api.v2": "StartDebugging",
+        "secop.repayment.web.api.v2": "StartDebugging",
+        "secop.notification.web.api.v2": "StartDebugging"
       }
     }
   }

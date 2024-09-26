@@ -89,8 +89,8 @@ namespace Secop.Credit.Persistence.Migrations
                 columns: new[] { "id", "amount", "application_date", "comment", "created_at", "created_by_id", "credit_type", "customer_id", "entity_status", "term_months", "updated_at", "updated_by_id" },
                 values: new object[,]
                 {
-                    { new Guid("12b4556d-8c2d-42f1-a125-e1d13a3d7c4b"), 35000.00m, new DateTime(2024, 8, 25, 8, 45, 0, 0, DateTimeKind.Utc), null, new DateTime(2024, 8, 25, 9, 0, 0, 0, DateTimeKind.Utc), new Guid("b2b3d1b2-56c1-439c-b88d-d9f9b2c4c123"), CreditType.Mortgage, new Guid("c12eaf70-8c4a-4b1d-8b63-3f4eacfd28ef"), EntityStatusType.Active, 36, null, null },
-                    { new Guid("b6e7d8c9-d2c7-4f0e-a3fc-76fa0d579123"), 20000.00m, new DateTime(2024, 8, 24, 18, 30, 0, 0, DateTimeKind.Utc), null, new DateTime(2024, 8, 24, 19, 0, 0, 0, DateTimeKind.Utc), new Guid("a1b72d1a-4c5a-439c-b88d-d8fa9b0d9ea4"), CreditType.Personal, new Guid("c12eaf70-8c4a-4b1d-8b63-3f4eacfd28ef"), EntityStatusType.Active, 24, null, null }
+                    { new Guid("12b4556d-8c2d-42f1-a125-e1d13a3d7c4b"), 35000.00m, new DateTime(2024, 8, 25, 8, 45, 0, 0, DateTimeKind.Utc), "", new DateTime(2024, 8, 25, 9, 0, 0, 0, DateTimeKind.Utc), new Guid("b2b3d1b2-56c1-439c-b88d-d9f9b2c4c123"), CreditType.Mortgage, new Guid("c12eaf70-8c4a-4b1d-8b63-3f4eacfd28ef"), EntityStatusType.Active, 36, null, null },
+                    { new Guid("b6e7d8c9-d2c7-4f0e-a3fc-76fa0d579123"), 20000.00m, new DateTime(2024, 8, 24, 18, 30, 0, 0, DateTimeKind.Utc), "", new DateTime(2024, 8, 24, 19, 0, 0, 0, DateTimeKind.Utc), new Guid("a1b72d1a-4c5a-439c-b88d-d8fa9b0d9ea4"), CreditType.Personal, new Guid("c12eaf70-8c4a-4b1d-8b63-3f4eacfd28ef"), EntityStatusType.Active, 24, null, null }
                 });
 
             migrationBuilder.CreateIndex(

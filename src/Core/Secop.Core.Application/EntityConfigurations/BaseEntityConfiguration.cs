@@ -7,8 +7,9 @@ using Secop.Core.Domain.Enums;
 
 namespace Secop.Core.Application.EntityConfigurations
 {
-    public abstract class BaseEntityConfiguration<TEntity> : IEntityTypeConfiguration<TEntity> where TEntity :
-    BaseEntity
+    public abstract class BaseEntityConfiguration<TEntity>
+        : IEntityTypeConfiguration<TEntity>
+        where TEntity : BaseEntity
     {
         private int _columnOrder = 0;
         protected int ColumnOrder => ++_columnOrder;

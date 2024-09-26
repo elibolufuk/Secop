@@ -1,17 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Secop.Core.Application.Constants;
 using Secop.Core.Application.EntityConfigurations;
 using Secop.Core.Domain.Entities.CustomerEntities;
 using Secop.Core.Application.Extensions;
+using Secop.Core.Application.Constants;
 
 namespace Secop.Customer.Persistence.EntityConfigurations
 {
     public class MemberEntityConfiguration : BaseEntityConfiguration<Member>
     {
+        private const string _databaseSchema = DatabaseSchemaConstants.Customer;
         public override void Configure(EntityTypeBuilder<Member> builder)
         {
-            builder.ToTable(EntityConfigurationExtensions.HasTableName<Member>(), DatabaseSchemaConstants.Customer);
+            builder.ToTable(EntityConfigurationExtensions.HasTableName<Member>(), _databaseSchema);
 
             builder.HasKey(m => m.Id);
 

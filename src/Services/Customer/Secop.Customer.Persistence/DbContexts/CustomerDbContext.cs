@@ -10,15 +10,15 @@ namespace Secop.Customer.Persistence.DbContexts
     public class CustomerDbContext(DbContextOptions<CustomerDbContext> options)
         : DbContext(options)
     {
-        private const string SchemaDefault = DatabaseSchemaConstants.Customer;
+        private readonly string _schemaDefault = DatabaseSchemaConstants.Customer;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-            modelBuilder.HasDefaultSchema(SchemaDefault);
+            modelBuilder.HasDefaultSchema(_schemaDefault);
 
-            modelBuilder.HasPostgresEnum<CustomerType>(schema: SchemaDefault);
-            modelBuilder.HasPostgresEnum<EntityStatusType>(schema: SchemaDefault);
+            modelBuilder.HasPostgresEnum<CustomerType>(schema: _schemaDefault);
+            modelBuilder.HasPostgresEnum<EntityStatusType>(schema: _schemaDefault);
 
             modelBuilder.Entity<Address>().SeedData();
             modelBuilder.Entity<Contact>().SeedData();

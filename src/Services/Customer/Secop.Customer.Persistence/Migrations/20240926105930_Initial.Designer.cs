@@ -13,7 +13,7 @@ using Secop.Customer.Persistence.DbContexts;
 namespace Secop.Customer.Persistence.Migrations
 {
     [DbContext(typeof(CustomerDbContext))]
-    [Migration("20240919083616_Initial")]
+    [Migration("20240926105930_Initial")]
     partial class Initial
     {
         /// <inheritdoc />

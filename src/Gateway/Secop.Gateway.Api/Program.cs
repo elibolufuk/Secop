@@ -10,16 +10,19 @@ var app = builder.Build();
 
 app.UseRouting();
 
-#pragma warning disable ASP0014 // Suggest using top level route registrations
-app.UseEndpoints(endpoints =>
+if (builder.Environment.IsDevelopment())
 {
-    endpoints.MapControllers();
-    endpoints.MapGet("/", async context =>
+#pragma warning disable ASP0014 // Suggest using top level route registrations
+    app.UseEndpoints(endpoints =>
     {
-        await context.Response.WriteAsync("Api Gateway");
+        endpoints.MapControllers();
+        endpoints.MapGet("/", async context =>
+        {
+            await context.Response.WriteAsync("Api Gateway");
+        });
     });
-});
 #pragma warning restore ASP0014 // Suggest using top level route registrations
+}
 
 await app.UseOcelot();
 app.Run();

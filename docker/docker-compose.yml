@@ -64,32 +64,55 @@ services:
   #    - redis-data-volume:/data
 
   gateway.api:
-    image: ${DOCKER_REGISTRY-}secopgatewayapi
+    image: ${DOCKER_REGISTRY-}secop/gateway
     container_name: api.gateway
     depends_on:
         - credit.api.v1
         - approval.api.v1
         - customer.api.v1
         - score.api.v1
+        - postgresdb
+        - rabbitmq
     build:
       context: ./../src
       dockerfile: Gateway/Secop.Gateway.Api/Dockerfile
     networks:
         - internal
 
+
+############################### approval ###############################
   approval.api.v1:
     image: ${DOCKER_REGISTRY-}secop/v1/approval
     container_name: api.v1.approval
+    depends_on:
+        - postgresdb
+        - rabbitmq
     build:
       context: ./../src/Services
       dockerfile: Approval/Secop.Approval.Web.Api.V1/Dockerfile
     networks:
         - internal
 
+  approval.api.v2:
+    image: ${DOCKER_REGISTRY-}secop/v2/approval
+    container_name: api.v2.approval
+    depends_on:
+        - postgresdb
+        - rabbitmq
+    build:
+      context: ./../src/Services
+      dockerfile: Approval/Secop.Approval.Web.Api.V2/Dockerfile
+    networks:
+        - internal
 
+
+############################### credit ###############################
   credit.api.v1:
     image: ${DOCKER_REGISTRY-}secop/v1/credit
     container_name: api.v1.credit
+    depends_on:
+        - postgresdb
+        - rabbitmq
     build:
       context: ./../src/Services
       dockerfile: Credit/Secop.Credit.Web.Api.V1/Dockerfile
@@ -97,9 +120,26 @@ services:
         - internal
 
 
+  credit.api.v2:
+    image: ${DOCKER_REGISTRY-}secop/v2/credit
+    container_name: api.v2.credit
+    depends_on:
+        - postgresdb
+        - rabbitmq
+    build:
+      context: ./../src/Services
+      dockerfile: Credit/Secop.Credit.Web.Api.V2/Dockerfile
+    networks:
+        - internal
+
+
+############################### customer ###############################
   customer.api.v1:
     image: ${DOCKER_REGISTRY-}secop/v1/customer
     container_name: api.v1.customer
+    depends_on:
+        - postgresdb
+        - rabbitmq
     build:
       context: ./../src/Services
       dockerfile: Customer/Secop.Customer.Web.Api.V1/Dockerfile
@@ -107,12 +147,53 @@ services:
         - internal
 
 
+############################### score ###############################
   score.api.v1:
     image: ${DOCKER_REGISTRY-}secop/v1/score
     container_name: api.v1.score
+    depends_on:
+        - postgresdb
+        - rabbitmq
     build:
       context: ./../src/Services
       dockerfile: Score/Secop.Score.Web.Api.V1/Dockerfile
+    networks:
+        - internal
+
+  score.api.v2:
+    image: ${DOCKER_REGISTRY-}secop/v2/score
+    container_name: api.v2.score
+    depends_on:
+        - postgresdb
+        - rabbitmq
+    build:
+      context: ./../src/Services
+      dockerfile: Score/Secop.Score.Web.Api.V2/Dockerfile
+    networks:
+        - internal
+
+############################### repayment ###############################
+  repayment.api.v2:
+    image: ${DOCKER_REGISTRY-}secop/v2/repayment
+    container_name: api.v2.repayment
+    depends_on:
+        - postgresdb
+        - rabbitmq
+    build:
+      context: ./../src/Services
+      dockerfile: Repayment/Secop.Repayment.Web.Api.V2/Dockerfile
+    networks:
+        - internal
+
+############################### notification ###############################
+  notification.api.v2:
+    image: ${DOCKER_REGISTRY-}secop/v2/notification
+    container_name: api.v2.notification
+    depends_on:
+        - rabbitmq
+    build:
+      context: ./../src/Services
+      dockerfile: Notification/Secop.Notification.Web.Api.V2/Dockerfile
     networks:
         - internal
 

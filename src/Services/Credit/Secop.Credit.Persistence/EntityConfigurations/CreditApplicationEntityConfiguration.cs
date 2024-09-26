@@ -8,12 +8,14 @@ using Secop.Core.Domain.Enums;
 
 namespace Secop.Credit.Persistence.EntityConfigurations
 {
-    public class CreditApplicationEntityConfiguration : BaseEntityConfiguration<CreditApplication>
+    public class CreditApplicationEntityConfiguration
+        : BaseEntityConfiguration<CreditApplication>
     {
+        private const string _databaseSchema = DatabaseSchemaConstants.Credit;
         public override void Configure(EntityTypeBuilder<CreditApplication> builder)
         {
             base.ConfigureBase(builder);
-            builder.ToTable(EntityConfigurationExtensions.HasTableName<CreditApplication>(), DatabaseSchemaConstants.Credit);
+            builder.ToTable(EntityConfigurationExtensions.HasTableName<CreditApplication>(), _databaseSchema);
 
             builder.Property(c => c.CustomerId)
                 .HasColumnDefaultName()

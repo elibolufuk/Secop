@@ -13,7 +13,7 @@ using Secop.Core.Domain.Enums;
 namespace Secop.Approval.Persistence.Migrations
 {
     [DbContext(typeof(ApprovalDbContext))]
-    [Migration("20240919083459_Initial")]
+    [Migration("20240926105535_Initial")]
     partial class Initial
     {
         /// <inheritdoc />

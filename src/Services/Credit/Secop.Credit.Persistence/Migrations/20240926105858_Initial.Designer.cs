@@ -13,7 +13,7 @@ using Secop.Credit.Persistence.DbContexts;
 namespace Secop.Credit.Persistence.Migrations
 {
     [DbContext(typeof(CreditDbContext))]
-    [Migration("20240919122032_Initial")]
+    [Migration("20240926105858_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -237,6 +237,7 @@ namespace Secop.Credit.Persistence.Migrations
                             Amount = 20000.00m,
                             ApplicationDate = new DateTime(2024, 8, 24, 18, 30, 0, 0, DateTimeKind.Utc),
                             ApplicationStatus = ApplicationStatusType.ApplicationReceived,
+                            Comment = "",
                             CreatedAt = new DateTime(2024, 8, 24, 19, 0, 0, 0, DateTimeKind.Utc),
                             CreatedById = new Guid("a1b72d1a-4c5a-439c-b88d-d8fa9b0d9ea4"),
                             CreditType = CreditType.Personal,
@@ -251,6 +252,7 @@ namespace Secop.Credit.Persistence.Migrations
                             Amount = 35000.00m,
                             ApplicationDate = new DateTime(2024, 8, 25, 8, 45, 0, 0, DateTimeKind.Utc),
                             ApplicationStatus = ApplicationStatusType.ApplicationReceived,
+                            Comment = "",
                             CreatedAt = new DateTime(2024, 8, 25, 9, 0, 0, 0, DateTimeKind.Utc),
                             CreatedById = new Guid("b2b3d1b2-56c1-439c-b88d-d9f9b2c4c123"),
                             CreditType = CreditType.Mortgage,

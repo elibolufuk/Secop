@@ -11,6 +11,18 @@
       ],
       "UpstreamPathTemplate": "/api/v1/credit/{everything}",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/v2/credit/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "credit.api.v2",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/api/v2/credit/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
     }
   ],
   "GlobalConfiguration": {

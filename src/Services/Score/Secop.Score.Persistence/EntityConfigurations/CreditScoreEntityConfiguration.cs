@@ -9,11 +9,12 @@ namespace Secop.Score.Persistence.EntityConfigurations
 {
     public class CreditScoreEntityConfiguration : BaseEntityConfiguration<CreditScore>
     {
+        private const string _databaseSchema = DatabaseSchemaConstants.Score;
         public override void Configure(EntityTypeBuilder<CreditScore> builder)
         {
             base.ConfigureBase(builder);
 
-            builder.ToTable(EntityConfigurationExtensions.HasTableName<CreditScore>(), DatabaseSchemaConstants.Score);
+            builder.ToTable(EntityConfigurationExtensions.HasTableName<CreditScore>(), _databaseSchema);
 
             builder.Property(cs => cs.CustomerId)
                 .HasColumnDefaultName()

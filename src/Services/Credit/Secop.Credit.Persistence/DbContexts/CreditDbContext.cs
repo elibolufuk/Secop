@@ -10,17 +10,17 @@ namespace Secop.Credit.Persistence.DbContexts
     public class CreditDbContext(DbContextOptions<CreditDbContext> options)
         : DbContext(options)
     {
-        private const string SchemaDefault = DatabaseSchemaConstants.Credit;
+        private const string _schemaDefault = DatabaseSchemaConstants.Credit;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-            modelBuilder.HasDefaultSchema(DatabaseSchemaConstants.Credit);
+            modelBuilder.HasDefaultSchema(_schemaDefault);
 
-            modelBuilder.HasPostgresEnum<CreditType>(schema: SchemaDefault);
-            modelBuilder.HasPostgresEnum<EntityStatusType>(schema: SchemaDefault);
-            modelBuilder.HasPostgresEnum<ApplicationStatusType>(schema: SchemaDefault);
-            modelBuilder.HasPostgresEnum<CreditRiskLevelType>(schema: SchemaDefault);
+            modelBuilder.HasPostgresEnum<CreditType>(schema: _schemaDefault);
+            modelBuilder.HasPostgresEnum<EntityStatusType>(schema: _schemaDefault);
+            modelBuilder.HasPostgresEnum<ApplicationStatusType>(schema: _schemaDefault);
+            modelBuilder.HasPostgresEnum<CreditRiskLevelType>(schema: _schemaDefault);
 
             modelBuilder.Entity<Condition>().SeedData();
             modelBuilder.Entity<CreditApplication>().SeedData();

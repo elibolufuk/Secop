@@ -7,16 +7,13 @@
 3 - Credit Scoring
 	Kullanıcının kredi puanını sorgulayan ve hesaplayan bir microservice
 
-4 - Risk Assessment
-	Kullanıcının kredi riskini değerlendiren ve karar veren bir sistem
-
-5 - Loan Approval Service
+4 - Loan Approval Service
 	Başvurunun onaylanması veya reddedilmesi kararını veren servis
 
-6 - Repayment Service
+5 - Repayment Service
 	Kullanıcının kredi geri ödeme planını oluşturan ve geri ödemeleri takip eden bir servis
 
-7 - Notification Service
+6 - Notification Service
 	Kullanıcılara ödeme hatırlatmaları, kredi onayı gibi bildirimleri gönderen servis
 
 
@@ -32,7 +29,6 @@ Orchestration
 		- Customer
 		- Credit
 		- Credit Scoring
-		- Risk Assessment
 		- Loan Approval Service
 		- Repayment Service
 		- Notification Service

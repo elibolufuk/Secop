@@ -13,7 +13,7 @@ using Secop.Score.Persistence.DbContexts;
 namespace Secop.Score.Persistence.Migrations
 {
     [DbContext(typeof(ScoreDbContext))]
-    [Migration("20240919083635_Initial")]
+    [Migration("20240926110037_Initial")]
     partial class Initial
     {
         /// <inheritdoc />

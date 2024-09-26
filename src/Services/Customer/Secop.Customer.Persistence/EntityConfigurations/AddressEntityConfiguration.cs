@@ -9,9 +9,10 @@ namespace Secop.Customer.Persistence.EntityConfigurations
 {
     public class AddressEntityConfiguration : BaseEntityConfiguration<Address>
     {
+        private const string _databaseSchema = DatabaseSchemaConstants.Customer;
         public override void Configure(EntityTypeBuilder<Address> builder)
         {
-            builder.ToTable(EntityConfigurationExtensions.HasTableName<Address>(), DatabaseSchemaConstants.Customer);
+            builder.ToTable(EntityConfigurationExtensions.HasTableName<Address>(), _databaseSchema);
 
             builder.Property(a => a.AddressLine1)
                 .HasColumnDefaultName()

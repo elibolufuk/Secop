@@ -1,5 +1,6 @@
 using Secop.Core.Application.Constants;
 using Secop.Core.Application.Extensions;
+using Secop.Core.Domain.Entities.CreditEntities;
 using Secop.Credit.Persistence.DbContexts;
 using Secop.Credit.Persistence.Extensions;
 using Secop.Credit.Web.Api.V1.Extensions;

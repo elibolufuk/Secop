@@ -34,6 +34,15 @@ services:
   #  ports:
   #    - '${REDIS_EXTERNAL_PORT}:${REDIS_INTERNAL_PORT}'
 
+  gateway.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - ASPNETCORE_HTTP_PORTS=8080
+    ports:
+      - "${GATEWAY_EXTERNAL_PORT}:8080"
+
+
+############################### approval ###############################
   approval.api.v1:
     environment:
       - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
@@ -43,7 +52,17 @@ services:
     ports:
       - "${APPROVAL_EXTERNAL_PORT_V1}:8080"
 
+  approval.api.v2:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ConnectionStrings__ApprovalDbContext=Host=${POSTGRES_HOST};Port=${POSTGRES_INTERNAL_PORT};Database=${POSTGRES_DATABASE};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}
+      - ConnectionStrings__RabbitMqAmqp=amqp://${RABBITMQ_USER}:${RABBITMQ_PASS}@rabbitmq:${RABBITMQ_AMQP}
+    ports:
+      - "${APPROVAL_EXTERNAL_PORT_V2}:8080"
 
+
+############################### credit ###############################
   credit.api.v1:
     environment:
       - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
@@ -53,7 +72,16 @@ services:
     ports:
       - "${CREDIT_EXTERNAL_PORT_V1}:8080"
 
+  credit.api.v2:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ConnectionStrings__CreditDbContext=Host=${POSTGRES_HOST};Port=${POSTGRES_INTERNAL_PORT};Database=${POSTGRES_DATABASE};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}
+      - ConnectionStrings__RabbitMqAmqp=amqp://${RABBITMQ_USER}:${RABBITMQ_PASS}@rabbitmq:${RABBITMQ_AMQP}
+    ports:
+      - "${CREDIT_EXTERNAL_PORT_V2}:8080"
 
+############################### customer ###############################
   customer.api.v1:
     environment:
       - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
@@ -63,7 +91,7 @@ services:
     ports:
       - "${CUSTOMER_EXTERNAL_PORT_V1}:8080"
 
-
+############################### score ###############################
   score.api.v1:
     environment:
       - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
@@ -72,12 +100,31 @@ services:
       - ConnectionStrings__RabbitMqAmqp=amqp://${RABBITMQ_USER}:${RABBITMQ_PASS}@rabbitmq:${RABBITMQ_AMQP}
     ports:
       - "${SCORE_EXTERNAL_PORT_V1}:8080"
- 
 
-  gateway.api:
+
+  score.api.v2:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ConnectionStrings__ScoreDbContext=Host=${POSTGRES_HOST};Port=${POSTGRES_INTERNAL_PORT};Database=${POSTGRES_DATABASE};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}
+      - ConnectionStrings__RabbitMqAmqp=amqp://${RABBITMQ_USER}:${RABBITMQ_PASS}@rabbitmq:${RABBITMQ_AMQP}
+    ports:
+      - "${SCORE_EXTERNAL_PORT_V2}:8080"
+
+############################### repayment ###############################
+  repayment.api.v2:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ConnectionStrings__RepaymentDbContext=Host=${POSTGRES_HOST};Port=${POSTGRES_INTERNAL_PORT};Database=${POSTGRES_DATABASE};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}
+      - ConnectionStrings__RabbitMqAmqp=amqp://${RABBITMQ_USER}:${RABBITMQ_PASS}@rabbitmq:${RABBITMQ_AMQP}
+    ports:
+      - "${REPAYMENT_EXTERNAL_PORT_V2}:8080"
+
+############################### notification ###############################
+  notification.api.v2:
     environment:
       - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
       - ASPNETCORE_HTTP_PORTS=8080
     ports:
-      - "${GATEWAY_EXTERNAL_PORT}:8080"
-
+      - "${NOTIFICATION_EXTERNAL_PORT_V2}:8080"

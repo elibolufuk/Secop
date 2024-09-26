@@ -1,17 +1,9 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace Secop.Core.ApiCommon.Controllers
 {
     [Route("api/v1/[controller]")]
-    [ApiController]
-    public class BaseV1Controller : ControllerBase
+    public class BaseV1Controller : BaseController
     {
-        private IMediator? _mediator;
-
-#pragma warning disable CS8603 // Possible null reference return.
-        protected IMediator Mediator => _mediator ??= HttpContext.RequestServices.GetService<IMediator>();
-#pragma warning restore CS8603 // Possible null reference return.
     }
 }

@@ -9,9 +9,10 @@ namespace Secop.Customer.Persistence.EntityConfigurations
 {
     public class ContactEntityConfiguration : BaseEntityConfiguration<Contact>
     {
+        private const string _databaseSchema = DatabaseSchemaConstants.Customer;
         public override void Configure(EntityTypeBuilder<Contact> builder)
         {
-            builder.ToTable(EntityConfigurationExtensions.HasTableName<Contact>(), DatabaseSchemaConstants.Customer);
+            builder.ToTable(EntityConfigurationExtensions.HasTableName<Contact>(), _databaseSchema);
 
             builder.Property(c => c.PhoneNumber)
                 .HasColumnDefaultName()

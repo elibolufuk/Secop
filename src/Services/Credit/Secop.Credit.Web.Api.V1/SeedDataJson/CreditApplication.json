@@ -12,7 +12,8 @@
     "CreditType": "Personal",
     "ApplicationDate": "2024-08-24T18:30:00Z",
     "RiskLevelType": "None",
-    "ApplicationStatus": "ApplicationReceived"
+    "ApplicationStatus": "ApplicationReceived",
+    "Comment": ""
   },
   {
     "Id": "12b4556d-8c2d-42f1-a125-e1d13a3d7c4b",
@@ -27,6 +28,7 @@
     "CreditType": "Mortgage",
     "ApplicationDate": "2024-08-25T08:45:00Z",
     "RiskLevelType": "None",
-    "ApplicationStatus": "ApplicationReceived"
+    "ApplicationStatus": "ApplicationReceived",
+    "Comment": ""
   }
 ]
