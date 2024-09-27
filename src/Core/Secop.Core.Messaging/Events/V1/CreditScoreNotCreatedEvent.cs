@@ -1,4 +1,4 @@
-﻿namespace Secop.Core.ApiCommon.Events.V1
+﻿namespace Secop.Core.Messaging.Events.V1
 {
     public class CreditScoreNotCreatedEvent
     {

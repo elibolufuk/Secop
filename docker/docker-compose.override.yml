@@ -22,18 +22,27 @@ services:
   #   ports:
   #       - ${KIBANA_EXTERNAL_PORT}:${KIBANA_INTERNAL_PORT}
  
-
-  # mongodb:
-  #  ports:
-  #      - "${MONGODB_INTERNAL_PORT}:${MONGODB_EXTERNAL_PORT}"
-  #  environment:
-  #      - MONGO_INITDB_ROOT_USERNAME=${MONGODB_USERNAME}
-  #      - MONGO_INITDB_ROOT_PASSWORD=${MONGODB_PASSWORD}
-
   # redisdb:
   #  ports:
   #    - '${REDIS_EXTERNAL_PORT}:${REDIS_INTERNAL_PORT}'
 
+  mongodb:
+   ports:
+       - "${MONGODB_INTERNAL_PORT}:${MONGODB_EXTERNAL_PORT}"
+   environment:
+       - MONGO_INITDB_ROOT_USERNAME=${MONGODB_USERNAME}
+       - MONGO_INITDB_ROOT_PASSWORD=${MONGODB_PASSWORD}
+
+  ############################### sagastatemachine ###############################
+  sagastatemachine:
+    environment:
+      - DOTNET_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - ConnectionStrings__RabbitMqAmqp=amqp://${RABBITMQ_USER}:${RABBITMQ_PASS}@rabbitmq:${RABBITMQ_AMQP}
+      - ConnectionStrings__MongoDb=mongodb://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@mongodb:${MONGODB_EXTERNAL_PORT}/?authSource=admin
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+
+############################### gateway ###############################
   gateway.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}

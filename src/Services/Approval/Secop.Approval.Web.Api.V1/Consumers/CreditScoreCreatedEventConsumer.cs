@@ -2,7 +2,7 @@
 using MassTransit;
 using MediatR;
 using Newtonsoft.Json;
-using Secop.Core.ApiCommon.Events.V1;
+using Secop.Core.Messaging.Events.V1;
 using Secop.Core.Application.Features.Approval.LoanApprovals.Commands.Create;
 
 namespace Secop.Approval.Web.Api.V1.Consumers

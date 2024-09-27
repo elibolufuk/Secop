@@ -2,8 +2,8 @@
 using MassTransit;
 using MediatR;
 using Newtonsoft.Json;
-using Secop.Core.ApiCommon.Constants.V1;
-using Secop.Core.ApiCommon.Events.V1;
+using Secop.Core.Messaging.Constants.V1;
+using Secop.Core.Messaging.Events.V1;
 using Secop.Core.Application.Features.Score.CreditScores.Commands.Create;
 
 namespace Secop.Score.Web.Api.V1.Consumers

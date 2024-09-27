@@ -47,14 +47,6 @@ services:
   #   networks:
   #       - internal
 
-  # mongodb:
-  #  container_name: db.mongodb
-  #  image: mongo
-  #  restart: always
-  #  volumes:
-  #      - mongo-data-volume:/var/lib/mongodb/data
-  #      - mongo-data-volume:/var/lib/mongodb/configdb
-
   # redisdb:
   #  container_name: db.redis
   #  image: redis:6.2-alpine
@@ -62,7 +54,38 @@ services:
   #  command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
   #  volumes: 
   #    - redis-data-volume:/data
+  #  networks:
+  #       - internal
 
+  mongodb:
+   container_name: db.mongodb
+   image: mongo
+   restart: always
+   volumes:
+       - mongo-data-volume:/var/lib/mongodb/data
+       - mongo-data-volume:/var/lib/mongodb/configdb
+   networks:
+       - internal
+
+  ############################### sagastatemachine ###############################
+  sagastatemachine:
+    image: ${DOCKER_REGISTRY-}secop/sagastatemachine
+    container_name: worker.sagastatemachine
+    depends_on:
+        - credit.api.v2
+        - approval.api.v2
+        - customer.api.v1
+        - score.api.v2
+        - repayment.api.v2
+        - notification.api.v2 
+        - mongodb
+    build:
+      context: ./../src
+      dockerfile: WorkerServices/Secop.WorkerServices.SagaStateMachine/Dockerfile
+    networks:
+        - internal
+
+############################### gateway ###############################
   gateway.api:
     image: ${DOCKER_REGISTRY-}secop/gateway
     container_name: api.gateway

@@ -1,6 +1,6 @@
 ﻿using MassTransit;
 using Secop.Approval.Web.Api.V1.Consumers;
-using Secop.Core.ApiCommon.Constants.V1;
+using Secop.Core.Messaging.Constants.V1;
 using Secop.Core.ApiCommon.Extensions;
 
 namespace Secop.Approval.Web.Api.V1.Extensions

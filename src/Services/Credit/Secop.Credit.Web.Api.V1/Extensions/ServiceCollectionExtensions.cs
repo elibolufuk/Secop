@@ -1,5 +1,5 @@
 ﻿using MassTransit;
-using Secop.Core.ApiCommon.Constants.V1;
+using Secop.Core.Messaging.Constants.V1;
 using Secop.Core.ApiCommon.Extensions;
 using Secop.Credit.Web.Api.V1.Consumers;
 

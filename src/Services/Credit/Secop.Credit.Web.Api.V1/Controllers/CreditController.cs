@@ -2,7 +2,7 @@
 using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using Secop.Core.ApiCommon.Controllers;
-using Secop.Core.ApiCommon.Events.V1;
+using Secop.Core.Messaging.Events.V1;
 using Secop.Core.ApiCommon.Responses;
 using Secop.Core.Application.Features.Credit.CreditApplications.Commands.Create;
 using Secop.Credit.Web.Api.V1.Models;

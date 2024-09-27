@@ -13,7 +13,8 @@
         "secop.approval.web.api.v2": "StartDebugging",
         "secop.score.web.api.v2": "StartDebugging",
         "secop.repayment.web.api.v2": "StartDebugging",
-        "secop.notification.web.api.v2": "StartDebugging"
+        "secop.notification.web.api.v2": "StartDebugging",
+        "sagastatemachine": "StartDebugging"
       }
     }
   }

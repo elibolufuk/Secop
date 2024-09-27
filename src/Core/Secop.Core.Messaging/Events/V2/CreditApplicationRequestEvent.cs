@@ -1,8 +1,9 @@
 ﻿using Secop.Core.Domain.Enums;
+using Secop.Core.Messaging.Interfaces;
 
-namespace Secop.Core.ApiCommon.Events.V1
+namespace Secop.Core.Messaging.Events.V2
 {
-    public class CreditApplicationCreatedEvent
+    public class CreditApplicationRequestEvent : ICreditApplicationRequestEvent
     {
         public Guid CreditApplicationId { get; set; }
         public Guid CustomerId { get; set; }

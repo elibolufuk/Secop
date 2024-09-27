@@ -58,21 +58,27 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Secop.Gateway.Api", "src\Ga
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Secop.Credit.Web.Api.V2", "src\Services\Credit\Secop.Credit.Web.Api.V2\Secop.Credit.Web.Api.V2.csproj", "{6D6A54FC-0CCE-4F6E-AF85-0A543AA12942}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Secop.Approval.Web.Api.V2", "src\Services\Approval\Secop.Approval.Web.Api.V2\Secop.Approval.Web.Api.V2.csproj", "{5562BF93-E6B6-4457-9FA6-C339572EDA5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Secop.Approval.Web.Api.V2", "src\Services\Approval\Secop.Approval.Web.Api.V2\Secop.Approval.Web.Api.V2.csproj", "{5562BF93-E6B6-4457-9FA6-C339572EDA5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Secop.Score.Web.Api.V2", "src\Services\Score\Secop.Score.Web.Api.V2\Secop.Score.Web.Api.V2.csproj", "{CCD840A4-0CE0-41F7-AC48-6C9B554901C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Secop.Score.Web.Api.V2", "src\Services\Score\Secop.Score.Web.Api.V2\Secop.Score.Web.Api.V2.csproj", "{CCD840A4-0CE0-41F7-AC48-6C9B554901C8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repayment", "Repayment", "{C4059BAC-BDE2-4701-925E-590F57A9B508}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notification", "Notification", "{A1210B12-5932-46A9-BA65-2D0AE9F9BA7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Secop.Notification.Web.Api.V2", "src\Services\Notification\Secop.Notification.Web.Api.V2\Secop.Notification.Web.Api.V2.csproj", "{29A43D9A-9DAC-47BD-B2CE-3620758312BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Secop.Notification.Web.Api.V2", "src\Services\Notification\Secop.Notification.Web.Api.V2\Secop.Notification.Web.Api.V2.csproj", "{29A43D9A-9DAC-47BD-B2CE-3620758312BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Secop.Repayment.Web.Api.V2", "src\Services\Repayment\Secop.Repayment.Web.Api.V2\Secop.Repayment.Web.Api.V2.csproj", "{FBFDB0D9-2025-4154-AB8E-8CE322E53A37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Secop.Repayment.Web.Api.V2", "src\Services\Repayment\Secop.Repayment.Web.Api.V2\Secop.Repayment.Web.Api.V2.csproj", "{FBFDB0D9-2025-4154-AB8E-8CE322E53A37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Secop.Notification.Persistence", "src\Services\Notification\Secop.Notification.Persistence\Secop.Notification.Persistence.csproj", "{65B5D025-4848-4FE6-8B0A-449CD6BFFB95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Secop.Notification.Persistence", "src\Services\Notification\Secop.Notification.Persistence\Secop.Notification.Persistence.csproj", "{65B5D025-4848-4FE6-8B0A-449CD6BFFB95}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Secop.Repayment.Persistence", "src\Services\Repayment\Secop.Repayment.Persistence\Secop.Repayment.Persistence.csproj", "{BEABDAEE-952C-4C45-9857-023B6FBF53F8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkerServices", "WorkerServices", "{42443030-4778-4EEE-866F-C3A18406F203}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Secop.Core.Messaging", "src\Core\Secop.Core.Messaging\Secop.Core.Messaging.csproj", "{63290521-7605-4819-86DD-9918BEE4209C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Secop.WorkerServices.SagaStateMachine", "src\WorkerServices\Secop.WorkerServices.SagaStateMachine\Secop.WorkerServices.SagaStateMachine.csproj", "{5DDB0642-08F1-4729-862F-6AEF9E8C1F5A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -160,6 +166,14 @@ Global
 		{BEABDAEE-952C-4C45-9857-023B6FBF53F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEABDAEE-952C-4C45-9857-023B6FBF53F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEABDAEE-952C-4C45-9857-023B6FBF53F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63290521-7605-4819-86DD-9918BEE4209C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63290521-7605-4819-86DD-9918BEE4209C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63290521-7605-4819-86DD-9918BEE4209C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63290521-7605-4819-86DD-9918BEE4209C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DDB0642-08F1-4729-862F-6AEF9E8C1F5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DDB0642-08F1-4729-862F-6AEF9E8C1F5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DDB0642-08F1-4729-862F-6AEF9E8C1F5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DDB0642-08F1-4729-862F-6AEF9E8C1F5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -193,6 +207,9 @@ Global
 		{FBFDB0D9-2025-4154-AB8E-8CE322E53A37} = {C4059BAC-BDE2-4701-925E-590F57A9B508}
 		{65B5D025-4848-4FE6-8B0A-449CD6BFFB95} = {A1210B12-5932-46A9-BA65-2D0AE9F9BA7A}
 		{BEABDAEE-952C-4C45-9857-023B6FBF53F8} = {C4059BAC-BDE2-4701-925E-590F57A9B508}
+		{42443030-4778-4EEE-866F-C3A18406F203} = {50811858-BA2D-436B-97B8-1036FC284492}
+		{63290521-7605-4819-86DD-9918BEE4209C} = {4FAA9B1A-BA35-456C-9998-F92F6437D9F1}
+		{5DDB0642-08F1-4729-862F-6AEF9E8C1F5A} = {42443030-4778-4EEE-866F-C3A18406F203}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D7CAA3E6-7826-456F-B19B-3BEB117CEE7B}

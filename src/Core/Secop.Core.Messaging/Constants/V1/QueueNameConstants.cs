@@ -1,4 +1,4 @@
-﻿namespace Secop.Core.ApiCommon.Constants.V1
+﻿namespace Secop.Core.Messaging.Constants.V1
 {
     public class QueueNameConstants
     {

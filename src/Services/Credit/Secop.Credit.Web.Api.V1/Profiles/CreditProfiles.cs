@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Secop.Core.ApiCommon.Events.V1;
+using Secop.Core.Messaging.Events.V1;
 using Secop.Core.Application.Features.Credit.CreditApplications.Commands.Create;
 using Secop.Credit.Web.Api.V1.Models;
 
